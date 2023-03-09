@@ -12,8 +12,17 @@ import {
 import tailwindStylesheetUrl from "./styles/tailwind.css";
 import { getUser } from "./session.server";
 
+import favicon from "./assets/favicon.svg";
+
+const lexendFontURL =
+  "https://fonts.googleapis.com/css2?family=Lexend:wght@400;700&display=swap";
+
 export const links: LinksFunction = () => {
-  return [{ rel: "stylesheet", href: tailwindStylesheetUrl }];
+  return [
+    { rel: "icon", href: favicon },
+    { rel: "stylesheet", href: lexendFontURL },
+    { rel: "stylesheet", href: tailwindStylesheetUrl },
+  ];
 };
 
 export const meta: MetaFunction = () => ({
