@@ -1,0 +1,9 @@
+/* tailwind css */
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+.nav-bar_line {
+    @apply  after:absolute after:left-0 after:right-0 after:mx-auto after:top-[92px] after:w-[340px] after:h-1 after:bg-black dark:after:bg-[#eee]
+}

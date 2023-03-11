@@ -1,15 +1,11 @@
-import sun from "~/assets/sun-regular.svg";
-
-type Props = {};
+type Props = {
+  children: React.ReactNode;
+};
 
 const NavBar = (props: Props) => {
   return (
-    <div className="flex items-center justify-between p-3 font-lexend font-bold text-4xl">
-      <span>|&|</span>
-      <span>M&M</span>
-      <span className="w-8">
-        <img src={sun} alt="" />
-      </span>
+    <div className="nav-bar_line flex h-24 items-center justify-between p-3 font-lexend text-[2rem] font-bold text-[#000] dark:text-[#eee] sticky">
+      {props.children}
     </div>
   );
 };
