@@ -14,8 +14,14 @@ export const sun_icon = (color="#000") => (
 )
 
 export const moon_icon = (color="#000") => (
-    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 384 512">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512">
         {/* <!--! Font Awesome Pro 6.3.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license (Commercial License) Copyright 2023 Fonticons, Inc.--> */}
         <path fill={color} d="M144.7 98.7a224 224 0 0 0 117.3 329A175.7 175.7 0 0 1 48 256c0-68.9 39.4-128.4 96.8-157.3zm62.1-66A223.6 223.6 0 0 0 0 256a223.7 223.7 0 0 0 351.9 183.4l5.5-4a215.7 215.7 0 0 0 21.8-18.7 16 16 0 0 0-13.9-27.2c-3.7.6-7.4 1.2-11.1 1.6-5 .5-10.1.9-15.3 1h-4a175.8 175.8 0 0 1-175.2-176c0-54.8 24.9-103.7 64.1-136l3.2-2.6a158.3 158.3 0 0 1 22.1-14.8 16 16 0 0 0-6.6-29.8c-3.6-.3-7.1-.5-10.7-.6l-8.2-.1-9.8.2-6.9.4z"/>
+    </svg>
+)
+
+export const arrow_icon = (color="#000") => (
+    <svg data-name="Layer 2" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 195 140.2">
+        <path fill={color} d="m125 140-17-16 42-41-1-1H0V58h150l-42-41 17-17 70 70-70 70Z" data-name="Layer 1"/>
     </svg>
 )

@@ -1,7 +1,8 @@
 import { useEffect, useState } from "react";
+import CircleArrowBtn from "~/components/circleArrowBtn";
 import NavBar from "~/components/navBar";
 
-import { menu_icon, sun_icon } from "~/utils.svg";
+import { menu_icon, moon_icon, sun_icon } from "~/utils.svg";
 
 export default function Index() {
   let [isDarkMode, setIsDarkMode] = useState(false);
@@ -31,23 +32,39 @@ export default function Index() {
   }, [isDarkMode]);
 
   return (
-    <div className="bg-white dark:bg-[#222]">
+    <div className="bg-white dark:bg-[#222] dark:text-[#eee]">
       <header>
         <NavBar>
           {" "}
           <button>{menu_icon(theme.iconColor)}</button>
           <span>M&M</span>
           <button
-            className="w-8"
+            className="h-8 w-8"
             onClick={() => {
               setIsDarkMode((prev) => !prev);
             }}
           >
-            {sun_icon(theme.iconColor)}
+            {isDarkMode
+              ? moon_icon(theme.iconColor)
+              : sun_icon(theme.iconColor)}
           </button>
         </NavBar>
       </header>
-      <main className="relative min-h-screen sm:flex sm:items-center sm:justify-center h-[5000px]"></main>
+      <main className="min-h-screen sm:flex sm:items-center sm:justify-center">
+        <section className="section-container flex h-[calc(100vh-96px)] flex-col items-center justify-between">
+          <div className="flex h-[380px] w-[320px] items-center justify-center bg-[#eee] dark:text-black">
+            <h2>Cover Photos</h2>
+          </div>
+          <div className="flex flex-col gap-3">
+            <h1>Mission Statement</h1>
+            <h2>Sub Statement</h2>
+          </div>
+          <button className="flex items-center gap-3 self-end">
+            <span className="text-button self-end">portfolio</span>
+            <CircleArrowBtn isDarkMode={isDarkMode} style="outline" />
+          </button>
+        </section>
+      </main>
     </div>
   );
 }
