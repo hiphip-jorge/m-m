@@ -1,11 +1,13 @@
 import { useEffect, useState } from "react";
 import CircleArrowBtn from "~/components/circleArrowBtn";
+import MobileMenu from "~/components/mobileMenu";
 import NavBar from "~/components/navBar";
 
-import { menu_icon, moon_icon, sun_icon } from "~/utils.svg";
+import { close_icon, menu_icon, moon_icon, sun_icon } from "~/utils.svg";
 
 export default function Index() {
   let [isDarkMode, setIsDarkMode] = useState(false);
+  let [isMenuOpen, setIsMenuOpen] = useState(false);
 
   let theme = isDarkMode ? { iconColor: "#eee" } : { iconColor: "#000" };
 
@@ -34,9 +36,10 @@ export default function Index() {
   return (
     <div className="bg-white dark:bg-[#222] dark:text-[#eee]">
       <header>
-        <NavBar>
-          {" "}
-          <button>{menu_icon(theme.iconColor)}</button>
+        <NavBar divider>
+          <button onClick={() => setIsMenuOpen(true)}>
+            {menu_icon(theme.iconColor)}
+          </button>
           <span>M&M</span>
           <button
             className="h-8 w-8"
@@ -49,9 +52,29 @@ export default function Index() {
               : sun_icon(theme.iconColor)}
           </button>
         </NavBar>
+        {isMenuOpen && (
+          <MobileMenu isDarkMode={isDarkMode}>
+            <NavBar>
+              <button onClick={() => setIsMenuOpen(false)}>
+                {close_icon(theme.iconColor)}
+              </button>
+              <span>M&M</span>
+              <button
+                className="h-8 w-8"
+                onClick={() => {
+                  setIsDarkMode((prev) => !prev);
+                }}
+              >
+                {isDarkMode
+                  ? moon_icon(theme.iconColor)
+                  : sun_icon(theme.iconColor)}
+              </button>{" "}
+            </NavBar>
+          </MobileMenu>
+        )}
       </header>
       <main className="min-h-screen sm:flex sm:items-center sm:justify-center">
-        <section className="section-container flex h-[calc(100vh-96px)] flex-col items-center justify-between">
+        <section className="section-container flex h-[calc(100vh-64px)] flex-col items-center justify-between">
           <div className="flex h-[380px] w-[320px] items-center justify-center bg-[#eee] dark:text-black">
             <h2>Cover Photos</h2>
           </div>
@@ -60,7 +83,7 @@ export default function Index() {
             <h2>Sub Statement</h2>
           </div>
           <button className="flex items-center gap-3 self-end">
-            <span className="text-button self-end">portfolio</span>
+            <span className="text-button self-start">view portfolio</span>
             <CircleArrowBtn isDarkMode={isDarkMode} style="outline" />
           </button>
         </section>
