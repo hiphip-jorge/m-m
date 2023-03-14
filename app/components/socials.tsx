@@ -1,4 +1,4 @@
-import { facebook_icon, instagram_icon, tiktok_icon } from "~/utils.svg";
+import { facebook_icon, tiktok_icon } from "~/utils.svg";
 
 type Props = {
   isDark?: boolean;

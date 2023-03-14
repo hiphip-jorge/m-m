@@ -2,6 +2,7 @@ import { useEffect, useState } from "react";
 import CircleArrowBtn from "~/components/circleArrowBtn";
 import MobileMenu from "~/components/mobileMenu";
 import NavBar from "~/components/navBar";
+import PhotoStack from "~/components/photoStack";
 
 import { close_icon, menu_icon, moon_icon, sun_icon } from "~/utils.svg";
 
@@ -37,7 +38,12 @@ export default function Index() {
     <div className="bg-white dark:bg-[#222] dark:text-[#eee]">
       <header>
         <NavBar divider>
-          <button onClick={() => setIsMenuOpen(true)}>
+          <button
+            onClick={() => {
+              document.querySelector("body")?.classList.add("overflow-hidden");
+              setIsMenuOpen(true);
+            }}
+          >
             {menu_icon(theme.iconColor)}
           </button>
           <span>M&M</span>
@@ -55,7 +61,14 @@ export default function Index() {
         {isMenuOpen && (
           <MobileMenu isDarkMode={isDarkMode}>
             <NavBar>
-              <button onClick={() => setIsMenuOpen(false)}>
+              <button
+                onClick={() => {
+                  document
+                    .querySelector("body")
+                    ?.classList.remove("overflow-hidden");
+                  setIsMenuOpen(false);
+                }}
+              >
                 {close_icon(theme.iconColor)}
               </button>
               <span>M&M</span>
@@ -75,9 +88,7 @@ export default function Index() {
       </header>
       <main className="min-h-screen sm:flex sm:items-center sm:justify-center">
         <section className="section-container flex h-[calc(100vh-64px)] flex-col items-center justify-between">
-          <div className="flex h-[380px] w-[320px] items-center justify-center bg-[#eee] dark:text-black">
-            <h2>Cover Photos</h2>
-          </div>
+          {!isMenuOpen && <PhotoStack />}
           <div className="flex flex-col gap-3">
             <h1>Mission Statement</h1>
             <h2>Sub Statement</h2>

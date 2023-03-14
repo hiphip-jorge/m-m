@@ -7,6 +7,12 @@ module.exports = {
       fontFamily: {
         'lexend': ['Lexend', 'sans-serif'],
       },
+      rotate: {
+        '4': '4deg',
+        '5': '5deg',
+        '7': '7deg',
+        '8': '8deg',
+      }
     },
   },
   plugins: [],
