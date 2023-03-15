@@ -12,7 +12,7 @@ let stack = [
 type Props = {};
 
 const PhotoStack = (props: Props) => {
-//   let [index, setIndex] = useState(0);
+  //   let [index, setIndex] = useState(0);
 
   return (
     <button>
@@ -21,7 +21,7 @@ const PhotoStack = (props: Props) => {
           return (
             <li
               key={idx}
-              className={`absolute left-0 right-0 m-auto w-[300px] shadow-2xl ${photo.zIndex} ${photo.rotate}`}
+              className={`absolute left-0 right-0 m-auto w-[260px] shadow-2xl ${photo.zIndex} ${photo.rotate}`}
             >
               <img src={photo.src} alt="" />
             </li>
