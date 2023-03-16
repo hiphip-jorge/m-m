@@ -12,6 +12,9 @@ module.exports = {
         '5': '5deg',
         '7': '7deg',
         '8': '8deg',
+      },
+      dropShadow: {
+        'photoStack': '0 25px 50px -12px rgb(0 0 0 / .75)'
       }
     },
   },

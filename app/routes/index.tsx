@@ -3,8 +3,17 @@ import CircleArrowBtn from "~/components/circleArrowBtn";
 import MobileMenu from "~/components/mobileMenu";
 import NavBar from "~/components/navBar";
 import PhotoStack from "~/components/photoStack";
+import AboutMe from "~/sections/aboutMe";
+import PortfolioPreview from "~/sections/portfolioPreview";
+import Testimonials from "~/sections/testimonials";
 
-import { close_icon, menu_icon, moon_icon, sun_icon } from "~/utils.svg";
+import {
+  close_icon,
+  gallery_icon,
+  menu_icon,
+  moon_icon,
+  sun_icon,
+} from "~/utils.svg";
 
 export default function Index() {
   let [isDarkMode, setIsDarkMode] = useState(false);
@@ -89,7 +98,7 @@ export default function Index() {
       <main className="min-h-screen sm:flex sm:items-center sm:justify-center">
         <section className="section-container flex h-[calc(100vh-64px)] flex-col items-center justify-between">
           {!isMenuOpen && <PhotoStack />}
-          <div className="flex flex-col gap-3">
+          <div className="mt-4 flex flex-col gap-3">
             <h1>Mission Statement</h1>
             <h2>Sub Statement</h2>
           </div>
@@ -98,6 +107,44 @@ export default function Index() {
             <CircleArrowBtn isDarkMode={isDarkMode} style="outline" />
           </button>
         </section>
+        <AboutMe>
+          <div className="z-10 ">
+            <h1 className="mb-2 w-fit bg-white pr-4 dark:bg-[#222]">Hi,</h1>
+            <h1 className="mb-2 w-fit bg-white pr-4 dark:bg-[#222]">
+              I'm Jane
+            </h1>
+            <h1 className="mb-2 w-fit bg-white pr-4 dark:bg-[#222]">Doe</h1>
+          </div>
+          <div className="h-[300px] w-[200px]">
+            <span className="absolute right-0 flex h-[400px] w-[306px] -translate-y-40 items-center justify-center bg-black text-white">
+              Photo
+            </span>
+          </div>
+          <div></div>
+          <p>
+            Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolore
+            ullam nemo, laborum ea hic voluptatem libero optio! laborum ea hic
+            voluptatem libero optio!
+          </p>
+        </AboutMe>
+        <PortfolioPreview>
+          <h1>Explore My Work</h1>
+          <h2>Lorem ipsum dolor sit amet consectetur.</h2>
+          <button className="flex gap-2 self-end ">
+            <span className="text-[2rem] leading-[2rem] underline">
+              portfolio
+            </span>
+            {gallery_icon(theme.iconColor)}
+          </button>
+          <figure>
+            <span className="absolute left-0 right-0 flex h-[535px] items-center justify-center bg-black text-white">
+              Photo
+            </span>
+          </figure>
+        </PortfolioPreview>
+        <Testimonials>
+          <h1 className="text-center">Testimonials</h1>
+        </Testimonials>
       </main>
     </div>
   );

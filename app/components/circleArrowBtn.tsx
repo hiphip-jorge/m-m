@@ -17,7 +17,7 @@ const CircleArrowBtn = ({ button, isDarkMode, style = "solid" }: Props) => {
 
   return button ? (
     <button
-      className={`h-12 w-12 rounded-full p-3 ${
+      className={`flex h-12 w-12 rounded-full p-3 ${
         style === "solid" ? styles.solid : styles.outline
       }`}
     >
@@ -25,7 +25,7 @@ const CircleArrowBtn = ({ button, isDarkMode, style = "solid" }: Props) => {
     </button>
   ) : (
     <div
-      className={`h-12 w-12 rounded-full p-3 ${
+      className={`flex h-12 w-12 rounded-full p-3 ${
         style === "solid" ? styles.solid : styles.outline
       }`}
     >

@@ -4,9 +4,9 @@ import photo2 from "~/photos/02.jpg";
 import photo3 from "~/photos/03.jpg";
 
 let stack = [
-  { src: photo1, rotate: "rotate-1", zIndex: "z-30" },
+  { src: photo1, rotate: "rotate-2", zIndex: "z-30" },
   { src: photo2, rotate: "-rotate-2", zIndex: "z-20" },
-  { src: photo3, rotate: "rotate-3", zIndex: "z-10" },
+  { src: photo3, rotate: "rotate-7", zIndex: "z-10" },
 ];
 
 type Props = {};
@@ -16,12 +16,12 @@ const PhotoStack = (props: Props) => {
 
   return (
     <button>
-      <ul className="h-[350px]">
+      <ul className="h-[300px]">
         {stack.map((photo, idx) => {
           return (
             <li
               key={idx}
-              className={`absolute left-0 right-0 m-auto w-[260px] shadow-2xl ${photo.zIndex} ${photo.rotate}`}
+              className={`dark:shadow-[#000000bb] absolute left-0 right-0 m-auto w-[248px] border border-gray-100 bg-white p-4 pb-12 shadow-xl dark:border-gray-200 dark:bg-gray-100 ${photo.zIndex} ${photo.rotate}`}
             >
               <img src={photo.src} alt="" />
             </li>
