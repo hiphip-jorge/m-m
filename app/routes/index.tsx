@@ -108,13 +108,13 @@ export default function Index() {
             </h1>
             <h1 className="mb-2 w-fit bg-white pr-4 dark:bg-[#222]">Doe</h1>
           </div>
-          <div className="h-[300px] w-[200px]">
-            <span className="absolute right-0 flex h-[400px] w-[306px] -translate-y-40 items-center justify-center bg-black text-white">
+          <div className="h-[275px] w-[200px]">
+            <span className="absolute right-0 flex h-[400px] w-[306px] -translate-y-44 items-center justify-center bg-black text-white">
               Photo
             </span>
           </div>
           <div></div>
-          <p>
+          <p className="text-2xl">
             Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolore
             ullam nemo, laborum ea hic voluptatem libero optio! laborum ea hic
             voluptatem libero optio!

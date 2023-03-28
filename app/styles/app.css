@@ -5,11 +5,11 @@
 @tailwind utilities;
 
 h1 {
-    @apply text-[48px] leading-[60px]
+    @apply text-[32px] leading-[48px]
 }
 
 h2, p {
-    @apply text-[24px] leading-[30px]
+    @apply text-[20px] leading-[28px]
 }
 
 .nav-bar_line {
