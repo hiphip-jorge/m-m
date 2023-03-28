@@ -18,30 +18,33 @@ import {
 export default function Index() {
   let [isDarkMode, setIsDarkMode] = useState(false);
   let [isMenuOpen, setIsMenuOpen] = useState(false);
-
-  let theme = isDarkMode ? { iconColor: "#eee" } : { iconColor: "#000" };
+  let theme = { iconColor: isDarkMode ? "#eee" : "#000" };
 
   useEffect(() => {
     let userTheme = localStorage.getItem("theme");
     let systemTheme = window.matchMedia("(prefers-color-scheme: dark)").matches;
 
-    // checks preset settings
+    // checks if preset settings
     if (userTheme === "dark" || (!userTheme && systemTheme)) {
       document.documentElement.classList.add("dark");
+      setIsDarkMode(true);
+      return;
     }
+  }, []);
 
-    // if dark mode and not in local storage
-    if (isDarkMode && userTheme !== "dark") {
-      localStorage.setItem("theme", "dark");
-      document.documentElement.classList.add("dark");
-    }
-
-    // if not dark mode and light not in local storage
-    if (!isDarkMode && userTheme !== "light") {
-      localStorage.setItem("theme", "light");
-      document.documentElement.classList.remove("dark");
-    }
-  }, [isDarkMode]);
+  let toggleMode = () => {
+    setIsDarkMode((prev) => {
+      let nowDark = !prev;
+      if (nowDark) {
+        localStorage.setItem("theme", "dark");
+        document.documentElement.classList.add("dark");
+      } else {
+        localStorage.setItem("theme", "light");
+        document.documentElement.classList.remove("dark");
+      }
+      return !prev;
+    });
+  };
 
   return (
     <div className="bg-white dark:bg-[#222] dark:text-[#eee]">
@@ -56,12 +59,7 @@ export default function Index() {
             {menu_icon(theme.iconColor)}
           </button>
           <span>M&M</span>
-          <button
-            className="h-8 w-8"
-            onClick={() => {
-              setIsDarkMode((prev) => !prev);
-            }}
-          >
+          <button className="h-8 w-8" onClick={toggleMode}>
             {isDarkMode
               ? moon_icon(theme.iconColor)
               : sun_icon(theme.iconColor)}
@@ -81,12 +79,7 @@ export default function Index() {
                 {close_icon(theme.iconColor)}
               </button>
               <span>M&M</span>
-              <button
-                className="h-8 w-8"
-                onClick={() => {
-                  setIsDarkMode((prev) => !prev);
-                }}
-              >
+              <button className="h-8 w-8" onClick={toggleMode}>
                 {isDarkMode
                   ? moon_icon(theme.iconColor)
                   : sun_icon(theme.iconColor)}
