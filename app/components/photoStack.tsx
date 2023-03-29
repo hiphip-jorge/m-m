@@ -21,7 +21,7 @@ const PhotoStack = (props: Props) => {
 
   return (
     <button>
-      <ul className="h-[200px]">
+      <ul className="h-[250px] w-1">
         {stack.map((photo, idx) => {
           return (
             <li

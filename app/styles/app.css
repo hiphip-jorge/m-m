@@ -4,6 +4,7 @@
 @tailwind components;
 @tailwind utilities;
 
+/* GENERAL  */
 h1 {
     @apply text-[32px] leading-[48px]
 }
@@ -12,18 +13,92 @@ h2, p {
     @apply text-[20px] leading-[28px]
 }
 
-.nav-bar_line {
-    @apply  after:absolute after:left-0 after:right-0 after:mx-auto after:top-16 after:w-[340px] after:h-1 after:bg-black dark:after:bg-[#eee]
-}
-
-.text-button {
-    @apply text-[32px] leading-[40px]
-}
-
 .section-container {
     @apply px-16 py-12
 }
 
+/* NAV */
+.nav-bar_line {
+    @apply  after:absolute after:left-0 after:right-0 after:mx-auto after:top-16 after:w-[340px] after:h-1 after:bg-[#eee] dark:after:bg-[#333]
+}
+
+.menu-bars {
+    @apply menu-topBar menu-bottomBar flex flex-col opacity-100 w-full
+}
+
+.menu-topBar {
+    @apply before:w-8 before:h-[3.5px] before:bg-black dark:before:bg-white
+}
+
+.menu-bottomBar {
+    @apply after:w-8 after:h-[3.5px] after:bg-black dark:after:bg-white
+}
+
+/* future animation use  */
+/* .cancel > .menu-bars {
+    @apply opacity-0 w-0
+}
+
+.cancel > .menu-bars::before {
+    rotate: 45deg;
+} */
+/*                      */
+
+/* BUTTONS */
+.text-button {
+    @apply text-[32px] leading-[40px]
+}
+
+div:hover > svg > .fill-icon--light, button:hover > svg > .fill-icon--light {
+    fill: #fff;
+    transition: fill .5s;
+}
+
+div:hover > svg > .fill-icon--dark, button:hover > svg > .fill-icon--light {
+    fill: #000;
+    transition: fill .5s;
+}
+
+button:hover > .bounce, div:hover > .bounce {
+    animation-play-state: paused;
+}
+
+/* COMPONENTS */
 .shadow-photoStack--dark {
     box-shadow: 25px 25px 12px rgb(0 0 0 / .75);
+}
+
+.arrowCircle-fill--light {
+    background-image: linear-gradient(#000, #000);
+    background-position: 0% 0%;
+    background-repeat: no-repeat;
+    background-size: 0% 100%;
+    transition: background-size .5s, color .5s;
+}
+
+.arrowCircle-fill--light:hover {
+        background-size: 100% 100%;
+}
+
+.arrowCircle-fill--dark {
+    background-image: linear-gradient(#eee, #eee);
+    background-position: 0% 0%;
+    background-repeat: no-repeat;
+    background-size: 0% 100%;
+    transition: background-size .5s, color .5s;
+}
+
+.arrowCircle-fill--dark:hover {
+        background-size: 100% 100%;
+}
+
+/* ANIMATIONS  */
+.bounce {
+    animation: bounce-right 1.25s linear infinite;
+}
+
+@keyframes bounce-right {
+    0% {transform: translateX(0);}
+    50% {transform: translateX(0.125rem);}
+    100% {transform: translateX(0);}
 }

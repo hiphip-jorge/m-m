@@ -10,7 +10,6 @@ import Testimonials from "~/sections/testimonials";
 import {
   close_icon,
   gallery_icon,
-  menu_icon,
   moon_icon,
   sun_icon,
 } from "~/utils.svg";
@@ -51,12 +50,13 @@ export default function Index() {
       <header>
         <NavBar divider>
           <button
+            className="flex h-8 w-8"
             onClick={() => {
               document.querySelector("body")?.classList.add("overflow-hidden");
               setIsMenuOpen(true);
             }}
           >
-            {menu_icon(theme.iconColor)}
+            <span className="menu-bars w-full text-2xl leading-6">&</span>
           </button>
           <span>M&M</span>
           <button className="h-8 w-8" onClick={toggleMode}>
@@ -89,15 +89,15 @@ export default function Index() {
         )}
       </header>
       <main className="min-h-screen sm:flex sm:items-center sm:justify-center">
-        <section className="section-container flex h-[calc(100vh-64px)] flex-col items-center justify-between">
+        <section className="section-container flex h-[calc(100vh-64px)] flex-col items-center justify-around">
           {!isMenuOpen && <PhotoStack />}
           <div className="mt-4 flex flex-col gap-3">
             <h1>Mission Statement</h1>
             <h2>Sub Statement</h2>
           </div>
           <button className="flex items-center gap-3 self-end">
-            <span className="text-button self-start">view portfolio</span>
-            <CircleArrowBtn isDarkMode={isDarkMode} style="outline" />
+            <span className="text-button">portfolio</span>
+            <CircleArrowBtn isDarkMode={isDarkMode} style="outline" animate />
           </button>
         </section>
         <AboutMe>

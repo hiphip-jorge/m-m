@@ -4,9 +4,15 @@ type Props = {
   isDarkMode?: boolean;
   style?: string;
   button?: boolean;
+  animate?: boolean;
 };
 
-const CircleArrowBtn = ({ button, isDarkMode, style = "solid" }: Props) => {
+const CircleArrowBtn = ({
+  button,
+  isDarkMode,
+  style = "solid",
+  animate,
+}: Props) => {
   let styles = {
     solid: "bg-black dark:bg-[#eee]",
     solidIcon: isDarkMode ? "#222" : "#fff",
@@ -17,19 +23,25 @@ const CircleArrowBtn = ({ button, isDarkMode, style = "solid" }: Props) => {
 
   return button ? (
     <button
-      className={`flex h-12 w-12 rounded-full p-3 ${
-        style === "solid" ? styles.solid : styles.outline
-      }`}
+      className={`flex h-12 w-12 rounded-full p-3 arrowCircle-fill--${
+        isDarkMode ? "dark" : "light"
+      } ${style === "solid" ? styles.solid : styles.outline}`}
     >
-      {arrow_icon(style === "solid" ? styles.solidIcon : styles.outlineIcon)}
+      {arrow_icon(
+        style === "solid" ? styles.solidIcon : styles.outlineIcon,
+        animate
+      )}
     </button>
   ) : (
     <div
-      className={`flex h-12 w-12 rounded-full p-3 ${
-        style === "solid" ? styles.solid : styles.outline
-      }`}
+      className={`flex h-12 w-12 rounded-full arrowCircle-fill--${
+        isDarkMode ? "dark" : "light"
+      } p-3 ${style === "solid" ? styles.solid : styles.outline}`}
     >
-      {arrow_icon(style === "solid" ? styles.solidIcon : styles.outlineIcon)}
+      {arrow_icon(
+        style === "solid" ? styles.solidIcon : styles.outlineIcon,
+        animate
+      )}
     </div>
   );
 };
