@@ -4,7 +4,7 @@ type Props = {
 
 const AboutMe = (props: Props) => {
   return (
-    <section className="section-container flex h-screen flex-col">
+    <section id="aboutMe" className="section-container flex flex-col gap-4">
       {props.children}
     </section>
   );

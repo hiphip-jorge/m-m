@@ -5,8 +5,12 @@
 @tailwind utilities;
 
 /* GENERAL  */
+html {
+    scroll-behavior: smooth;
+}
+
 h1 {
-    @apply text-[32px] leading-[48px]
+    @apply text-[32px] leading-10
 }
 
 h2, p {
@@ -15,6 +19,10 @@ h2, p {
 
 .section-container {
     @apply px-16 py-12
+}
+
+.section-header {
+    @apply font-bold
 }
 
 /* NAV */
@@ -49,18 +57,28 @@ h2, p {
     @apply text-[32px] leading-[40px]
 }
 
-div:hover > svg > .fill-icon--light, button:hover > svg > .fill-icon--light {
+button:hover div > svg > .fill-icon--light, button:hover button > svg > .fill-icon--light {
     fill: #fff;
-    transition: fill .5s;
+    stroke: #fff;
+    transition: fill ease-in-out .75s;
 }
 
-div:hover > svg > .fill-icon--dark, button:hover > svg > .fill-icon--light {
-    fill: #000;
-    transition: fill .5s;
+button:hover div > svg > .fill-icon--dark, button:hover button > svg > .fill-icon--dark {
+    fill: #222;
+    stroke: #222;
+    transition: fill ease-in-out .75s;
 }
 
-button:hover > .bounce, div:hover > .bounce {
+button:hover > div > .bounce, button:hover > button > .bounce {
     animation-play-state: paused;
+}
+
+button:hover > div > #portfolio--light {
+    color: #fff;
+}
+
+button:hover > div > #portfolio--dark {
+    color: #000;
 }
 
 /* COMPONENTS */
@@ -68,27 +86,27 @@ button:hover > .bounce, div:hover > .bounce {
     box-shadow: 25px 25px 12px rgb(0 0 0 / .75);
 }
 
-.arrowCircle-fill--light {
+.button-fill--light {
     background-image: linear-gradient(#000, #000);
     background-position: 0% 0%;
     background-repeat: no-repeat;
     background-size: 0% 100%;
-    transition: background-size .5s, color .5s;
+    transition: background-size ease-in-out .5s, color ease-in-out .5s;
 }
 
-.arrowCircle-fill--light:hover {
+button:hover .button-fill--light {
         background-size: 100% 100%;
 }
 
-.arrowCircle-fill--dark {
+.button-fill--dark {
     background-image: linear-gradient(#eee, #eee);
     background-position: 0% 0%;
     background-repeat: no-repeat;
     background-size: 0% 100%;
-    transition: background-size .5s, color .5s;
+    transition: background-size ease-in-out .5s, color ease-in-out .5s;
 }
 
-.arrowCircle-fill--dark:hover {
+button:hover .button-fill--dark {
         background-size: 100% 100%;
 }
 

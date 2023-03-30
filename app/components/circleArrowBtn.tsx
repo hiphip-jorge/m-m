@@ -23,7 +23,7 @@ const CircleArrowBtn = ({
 
   return button ? (
     <button
-      className={`flex h-12 w-12 rounded-full p-3 arrowCircle-fill--${
+      className={`flex h-12 w-12 rounded-full p-3 button-fill--${
         isDarkMode ? "dark" : "light"
       } ${style === "solid" ? styles.solid : styles.outline}`}
     >
@@ -34,7 +34,7 @@ const CircleArrowBtn = ({
     </button>
   ) : (
     <div
-      className={`flex h-12 w-12 rounded-full arrowCircle-fill--${
+      className={`flex h-12 w-12 rounded-full button-fill--${
         isDarkMode ? "dark" : "light"
       } p-3 ${style === "solid" ? styles.solid : styles.outline}`}
     >

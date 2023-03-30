@@ -4,7 +4,10 @@ type Props = {
 
 const Testimonials = (props: Props) => {
   return (
-    <section className="section-container flex h-screen flex-col">
+    <section
+      id="testimonials"
+      className="section-container flex h-screen flex-col"
+    >
       {" "}
       {props.children}
     </section>

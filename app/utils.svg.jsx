@@ -17,10 +17,10 @@ export const close_icon = (color="#000") => (
 
 export const gallery_icon = (color="#000") => (
     <svg width="32" height="32" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
-        <rect x="1.75" y="1.75" width="10.5" height="10.5" stroke={color} strokeWidth="3.5"/>
-        <rect x="1.75" y="19.75" width="10.5" height="10.5" stroke={color} strokeWidth="3.5"/>
-        <rect x="19.75" y="1.75" width="10.5" height="10.5" stroke={color} strokeWidth="3.5"/>
-        <rect x="19.75" y="19.75" width="10.5" height="10.5" stroke={color} strokeWidth="3.5"/>
+        <rect className={color === '#000' ? 'fill-icon--light' : 'fill-icon--dark' + ' duration-300'} x="1.75" y="1.75" width="10.5" height="10.5" stroke={color} strokeWidth="3.5"/>
+        <rect className={color === '#000' ? 'fill-icon--light' : 'fill-icon--dark' + ' duration-300'}  x="1.75" y="19.75" width="10.5" height="10.5" stroke={color} strokeWidth="3.5"/>
+        <rect className={color === '#000' ? 'fill-icon--light' : 'fill-icon--dark' + ' duration-300'} x="19.75" y="1.75" width="10.5" height="10.5" stroke={color} strokeWidth="3.5"/>
+        <rect className={color === '#000' ? 'fill-icon--light' : 'fill-icon--dark' + ' duration-300'} x="19.75" y="19.75" width="10.5" height="10.5" stroke={color} strokeWidth="3.5"/>
     </svg>
 )
 

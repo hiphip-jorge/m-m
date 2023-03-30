@@ -4,7 +4,10 @@ type Props = {
 
 const PortfolioPreview = (props: Props) => {
   return (
-    <section className="section-container flex h-screen flex-col gap-4">
+    <section
+      id="portfolioPreview"
+      className="section-container flex flex-col gap-4"
+    >
       {props.children}
     </section>
   );

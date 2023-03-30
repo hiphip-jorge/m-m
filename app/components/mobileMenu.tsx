@@ -13,9 +13,15 @@ const MobileMenu = (props: Props) => {
       <div className="flex h-[calc(100vh-64px)]  flex-col justify-between">
         <main className="p-12 text-[2rem] text-black dark:text-[#eee]">
           <ul className="flex flex-col gap-6">
-            <li>About Me</li>
-            <li>Portfolio</li>
-            <li>Testimonials</li>
+            <li>
+              <a href="#aboutMe">About Me</a>
+            </li>
+            <li>
+              <a href="#portfolioPreview">Portfolio</a>
+            </li>
+            <li>
+              <a href="#testimonials">Testimonials</a>
+            </li>
           </ul>
         </main>
         <footer className="self-center p-10">
