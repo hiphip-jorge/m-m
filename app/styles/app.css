@@ -27,7 +27,7 @@ h2, p {
 
 /* NAV */
 .nav-bar_line {
-    @apply  after:absolute after:left-0 after:right-0 after:mx-auto after:top-16 after:w-[340px] after:h-1 after:bg-[#eee] dark:after:bg-[#333]
+    @apply  after:absolute after:left-0 after:right-0 after:mx-auto after:top-16 after:w-[340px] after:h-[.1rem] after:bg-[#eee] dark:after:bg-[#333]
 }
 
 .menu-bars {
