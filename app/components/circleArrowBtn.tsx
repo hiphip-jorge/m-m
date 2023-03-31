@@ -1,17 +1,21 @@
 import { arrow_icon } from "~/utils.svg";
 
 type Props = {
-  isDarkMode?: boolean;
   style?: string;
+  className?: string;
   button?: boolean;
   animate?: boolean;
+  isDarkMode?: boolean;
+  onClick?: React.MouseEventHandler<HTMLButtonElement>;
 };
 
 const CircleArrowBtn = ({
   button,
   isDarkMode,
+  className = "",
   style = "solid",
   animate,
+  onClick = () => {},
 }: Props) => {
   let styles = {
     solid: "bg-black dark:bg-[#eee]",
@@ -23,7 +27,8 @@ const CircleArrowBtn = ({
 
   return button ? (
     <button
-      className={`flex h-12 w-12 rounded-full p-3 button-fill--${
+      onClick={onClick}
+      className={`${className} flex items-center h-12 w-12 rounded-full p-3 button-fill--${
         isDarkMode ? "dark" : "light"
       } ${style === "solid" ? styles.solid : styles.outline}`}
     >
@@ -34,7 +39,7 @@ const CircleArrowBtn = ({
     </button>
   ) : (
     <div
-      className={`flex h-12 w-12 rounded-full button-fill--${
+      className={`${className} flex items-center h-12 w-12 rounded-full p-3 button-fill--${
         isDarkMode ? "dark" : "light"
       } p-3 ${style === "solid" ? styles.solid : styles.outline}`}
     >

@@ -3,6 +3,7 @@ import CircleArrowBtn from "~/components/circleArrowBtn";
 import MobileMenu from "~/components/mobileMenu";
 import NavBar from "~/components/navBar";
 import PhotoStack from "~/components/photoStack";
+import Testimonial from "~/components/testimonial";
 import AboutMe from "~/sections/aboutMe";
 import PortfolioPreview from "~/sections/portfolioPreview";
 import Testimonials from "~/sections/testimonials";
@@ -141,14 +142,14 @@ export default function Index() {
               {gallery_icon(theme.iconColor)}
             </div>
           </button>
-          <figure>
-            <span className="absolute left-0 right-0 flex h-[535px] items-center justify-center bg-black text-white">
+          <figure className="h-[455px]">
+            <span className="absolute left-0 right-0 flex h-[455px] items-center justify-center bg-black text-white">
               Photo
             </span>
           </figure>
         </PortfolioPreview>
-        <Testimonials>
-          <h1 className="text-center">Testimonials</h1>
+        <Testimonials isDarkMode={isDarkMode}>
+          <h1 className="section-header">Testimonials</h1>
         </Testimonials>
       </main>
     </div>
