@@ -57,7 +57,7 @@ h2, p {
     @apply text-[32px] leading-[40px]
 }
 
-button:hover div > svg > .fill-icon--light, button:hover button > svg > .fill-icon--light {
+button:hover  div > svg > .fill-icon--light, button:hover button > svg > .fill-icon--light {
     fill: #fff;
     stroke: #fff;
     transition: fill ease-in-out .75s;
