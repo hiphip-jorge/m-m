@@ -25,30 +25,28 @@ const CircleArrowBtn = ({
     outlineIcon: isDarkMode ? "#fff" : "#000",
   };
 
-  return button ? (
-    <button
-      onClick={onClick}
-      className={`${className} flex items-center h-12 w-12 rounded-full p-3 button-fill--${
-        isDarkMode ? "dark" : "light"
-      } ${style === "solid" ? styles.solid : styles.outline}`}
-    >
-      {arrow_icon(
-        style === "solid" ? styles.solidIcon : styles.outlineIcon,
-        animate
-      )}
-    </button>
-  ) : (
-    <div
-      className={`${className} flex items-center h-12 w-12 rounded-full p-3 button-fill--${
-        isDarkMode ? "dark" : "light"
-      } p-3 ${style === "solid" ? styles.solid : styles.outline}`}
-    >
-      {arrow_icon(
-        style === "solid" ? styles.solidIcon : styles.outlineIcon,
-        animate
-      )}
-    </div>
-  );
+  if (button) {
+    return (
+      <button
+        onClick={onClick}
+        className={`${className} flex h-12 w-12 items-center rounded-full p-3 button-fill--${
+          isDarkMode ? "dark" : "light"
+        } ${style === "solid" ? styles.solid : styles.outline}`}
+      >
+        {arrow_icon(style === "solid" ? styles.solidIcon : styles.outlineIcon)}
+      </button>
+    );
+  } else {
+    return (
+      <div
+        className={`${className} flex h-12 w-12 items-center rounded-full p-3 button-fill--${
+          isDarkMode ? "dark" : "light"
+        } p-3 ${style === "solid" ? styles.solid : styles.outline}`}
+      >
+        {arrow_icon(style === "solid" ? styles.solidIcon : styles.outlineIcon)}
+      </div>
+    );
+  }
 };
 
 export default CircleArrowBtn;

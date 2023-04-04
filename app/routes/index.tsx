@@ -93,8 +93,8 @@ export default function Index() {
           </div>
           <button className="flex items-center gap-3 self-end">
             <span className="text-button">portfolio</span>
-            <CircleArrowBtn isDarkMode={isDarkMode} style="outline" animate />
           </button>
+          <CircleArrowBtn isDarkMode={isDarkMode} style="outline" animate />
         </section>
         <AboutMe>
           <div className="flex h-[350px] whitespace-nowrap">
@@ -121,9 +121,9 @@ export default function Index() {
           </article>
         </AboutMe>
         <PortfolioPreview>
-          <div className="flex flex-col gap-4 px-16 pt-12 h-1/2 justify-between">
+          <div className="flex h-1/2 flex-col justify-between gap-4 px-16 pt-12">
             <h1 className="section-header">Explore My Work</h1>
-            <article className="flex flex-col justify-between h-4/5">
+            <article className="flex h-4/5 flex-col justify-between">
               <p className="text-xl">
                 I take pride in my work and love showing it off. Take your time
                 while you look through my photos and spot the extra care I give

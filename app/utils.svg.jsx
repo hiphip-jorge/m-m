@@ -38,9 +38,9 @@ export const moon_icon = (color="#000") => (
     </svg>
 )
 
-export const arrow_icon = (color="#000", animate=false) => (
-    <svg data-name="Layer 2" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 195 140.2" className={animate ? 'bounce z-40' : 'z-40'}>
-        <path fill={color} className={color === '#000' ? 'fill-icon--light' : 'fill-icon--dark'} d="m125 140-17-16 42-41-1-1H0V58h150l-42-41 17-17 70 70-70 70Z" data-name="Layer 1"/>
+export const arrow_icon = (color="#000") => (
+    <svg data-name="Layer 2" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 195 140.2">
+        <path fill={color} d="m125 140-17-16 42-41-1-1H0V58h150l-42-41 17-17 70 70-70 70Z" data-name="Layer 1"/>
     </svg>
 )
 
