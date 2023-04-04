@@ -8,7 +8,13 @@ import AboutMe from "~/sections/aboutMe";
 import PortfolioPreview from "~/sections/portfolioPreview";
 import Testimonials from "~/sections/testimonials";
 
-import { close_icon, gallery_icon, moon_icon, sun_icon } from "~/utils.svg";
+import {
+  arrow_icon,
+  close_icon,
+  gallery_icon,
+  moon_icon,
+  sun_icon,
+} from "~/utils.svg";
 
 export default function Index() {
   let [isDarkMode, setIsDarkMode] = useState(false);
@@ -93,8 +99,11 @@ export default function Index() {
           </div>
           <button className="flex items-center gap-3 self-end">
             <span className="text-button">portfolio</span>
+            {/* <CircleArrowBtn isDarkMode={isDarkMode} style="outline" animate /> */}
+            <div className="flex h-10 w-10 items-center rounded-full border-[3.5px] border-black p-2">
+              {arrow_icon()}
+            </div>
           </button>
-          <CircleArrowBtn isDarkMode={isDarkMode} style="outline" animate />
         </section>
         <AboutMe>
           <div className="flex h-[350px] whitespace-nowrap">
