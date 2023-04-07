@@ -29,7 +29,7 @@ const CircleArrowBtn = ({
     return (
       <button
         onClick={onClick}
-        className={`${className} flex h-12 w-12 items-center rounded-full p-3 button-fill--${
+        className={`${className} rounded-full button-fill--${
           isDarkMode ? "dark" : "light"
         } ${style === "solid" ? styles.solid : styles.outline}`}
       >
@@ -39,9 +39,9 @@ const CircleArrowBtn = ({
   } else {
     return (
       <div
-        className={`${className} flex h-12 w-12 items-center rounded-full p-3 button-fill--${
+        className={`${className} rounded-full button-fill--${
           isDarkMode ? "dark" : "light"
-        } p-3 ${style === "solid" ? styles.solid : styles.outline}`}
+        } ${style === "solid" ? styles.solid : styles.outline}`}
       >
         {arrow_icon(style === "solid" ? styles.solidIcon : styles.outlineIcon)}
       </div>
