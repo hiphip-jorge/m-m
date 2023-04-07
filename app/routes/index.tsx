@@ -99,7 +99,7 @@ export default function Index() {
           </div>
           <button className="flex items-center gap-3 self-end">
             <span className="text-button">portfolio</span>
-            <CircleArrowBtn isDarkMode={isDarkMode} style="outline" />
+            <CircleArrowBtn isDarkMode={isDarkMode} style="outline" animate />
             {/* <div className="rounded-full border-2 border-black">
               {arrow_icon()}
             </div> */}

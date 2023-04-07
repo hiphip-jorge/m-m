@@ -33,7 +33,10 @@ const CircleArrowBtn = ({
           isDarkMode ? "dark" : "light"
         } ${style === "solid" ? styles.solid : styles.outline}`}
       >
-        {arrow_icon(style === "solid" ? styles.solidIcon : styles.outlineIcon)}
+        {arrow_icon(
+          style === "solid" ? styles.solidIcon : styles.outlineIcon,
+          animate
+        )}
       </button>
     );
   } else {
@@ -43,7 +46,10 @@ const CircleArrowBtn = ({
           isDarkMode ? "dark" : "light"
         } ${style === "solid" ? styles.solid : styles.outline}`}
       >
-        {arrow_icon(style === "solid" ? styles.solidIcon : styles.outlineIcon)}
+        {arrow_icon(
+          style === "solid" ? styles.solidIcon : styles.outlineIcon,
+          animate
+        )}
       </div>
     );
   }
