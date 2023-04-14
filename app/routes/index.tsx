@@ -47,6 +47,31 @@ export default function Index() {
     });
   };
 
+  if (isMenuOpen) {
+    return (
+      <MobileMenu isDarkMode={isDarkMode}>
+        <NavBar>
+          <button
+            onClick={() => {
+              document
+                .querySelector("body")
+                ?.classList.remove("overflow-hidden");
+              setIsMenuOpen(false);
+            }}
+          >
+            {close_icon(theme.iconColor)}
+          </button>
+          <span>M&M</span>
+          <button className="h-8 w-8" onClick={toggleMode}>
+            {isDarkMode
+              ? moon_icon(theme.iconColor)
+              : sun_icon(theme.iconColor)}
+          </button>{" "}
+        </NavBar>
+      </MobileMenu>
+    );
+  }
+
   return (
     <div className="bg-white dark:bg-[#222] dark:text-[#eee]">
       <header>
@@ -67,28 +92,6 @@ export default function Index() {
               : sun_icon(theme.iconColor)}
           </button>
         </NavBar>
-        {isMenuOpen && (
-          <MobileMenu isDarkMode={isDarkMode}>
-            <NavBar>
-              <button
-                onClick={() => {
-                  document
-                    .querySelector("body")
-                    ?.classList.remove("overflow-hidden");
-                  setIsMenuOpen(false);
-                }}
-              >
-                {close_icon(theme.iconColor)}
-              </button>
-              <span>M&M</span>
-              <button className="h-8 w-8" onClick={toggleMode}>
-                {isDarkMode
-                  ? moon_icon(theme.iconColor)
-                  : sun_icon(theme.iconColor)}
-              </button>{" "}
-            </NavBar>
-          </MobileMenu>
-        )}
       </header>
       <main className="min-h-screen sm:flex sm:items-center sm:justify-center">
         <section className="section-container flex h-[calc(100vh-64px)] flex-col items-center justify-around">
@@ -100,9 +103,6 @@ export default function Index() {
           <button className="flex items-center gap-3 self-end">
             <span className="text-button">portfolio</span>
             <CircleArrowBtn isDarkMode={isDarkMode} style="outline" animate />
-            {/* <div className="rounded-full border-2 border-black">
-              {arrow_icon()}
-            </div> */}
           </button>
         </section>
         <AboutMe>
