@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+import { useState } from "react";
 import CircleArrowBtn from "~/components/circleArrowBtn";
 import MobileMenu from "~/components/mobileMenu";
 import NavBar from "~/components/navBar";
@@ -7,45 +7,14 @@ import Testimonial from "~/components/testimonial";
 import AboutMe from "~/sections/aboutMe";
 import PortfolioPreview from "~/sections/portfolioPreview";
 import Testimonials from "~/sections/testimonials";
+import { useThemes } from "~/utils.customHooks";
 
-import {
-  arrow_icon,
-  close_icon,
-  gallery_icon,
-  moon_icon,
-  sun_icon,
-} from "~/utils.svg";
+import { close_icon, gallery_icon, moon_icon, sun_icon } from "~/utils.svg";
 
 export default function Index() {
-  let [isDarkMode, setIsDarkMode] = useState(false);
+  let { isDarkMode, toggleTheme } = useThemes();
   let [isMenuOpen, setIsMenuOpen] = useState(false);
   let theme = { iconColor: isDarkMode ? "#eee" : "#000" };
-
-  useEffect(() => {
-    let userTheme = localStorage.getItem("theme");
-    let systemTheme = window.matchMedia("(prefers-color-scheme: dark)").matches;
-
-    // checks if preset settings
-    if (userTheme === "dark" || (!userTheme && systemTheme)) {
-      document.documentElement.classList.add("dark");
-      setIsDarkMode(true);
-      return;
-    }
-  }, []);
-
-  let toggleMode = () => {
-    setIsDarkMode((prev) => {
-      let nowDark = !prev;
-      if (nowDark) {
-        localStorage.setItem("theme", "dark");
-        document.documentElement.classList.add("dark");
-      } else {
-        localStorage.setItem("theme", "light");
-        document.documentElement.classList.remove("dark");
-      }
-      return !prev;
-    });
-  };
 
   if (isMenuOpen) {
     return (
@@ -62,7 +31,7 @@ export default function Index() {
             {close_icon(theme.iconColor)}
           </button>
           <span>M&M</span>
-          <button className="h-8 w-8" onClick={toggleMode}>
+          <button className="h-8 w-8" onClick={toggleTheme}>
             {isDarkMode
               ? moon_icon(theme.iconColor)
               : sun_icon(theme.iconColor)}
@@ -86,7 +55,7 @@ export default function Index() {
             <span className="menu-bars w-full text-2xl leading-6">&</span>
           </button>
           <span>M&M</span>
-          <button className="h-8 w-8" onClick={toggleMode}>
+          <button className="h-8 w-8" onClick={toggleTheme}>
             {isDarkMode
               ? moon_icon(theme.iconColor)
               : sun_icon(theme.iconColor)}
@@ -102,7 +71,7 @@ export default function Index() {
           </div>
           <button className="flex items-center gap-3 self-end">
             <span className="text-button">portfolio</span>
-            <CircleArrowBtn isDarkMode={isDarkMode} style="outline" animate />
+            <CircleArrowBtn isDarkMode={isDarkMode} className="w-12 h-12" style="outline" animate />
           </button>
         </section>
         <AboutMe>
@@ -129,10 +98,13 @@ export default function Index() {
             </p>
           </article>
         </AboutMe>
+        <Testimonials isDarkMode={isDarkMode}>
+          <h1 className="section-header">Testimonials</h1>
+        </Testimonials>
         <PortfolioPreview>
           <div className="flex h-1/2 flex-col justify-between gap-4 px-16 pt-12">
             <h1 className="section-header">Explore My Work</h1>
-            <article className="flex h-4/5 flex-col justify-between">
+            <article className="mb-10 flex h-4/5 flex-col justify-between gap-8">
               <p className="text-xl">
                 I take pride in my work and love showing it off. Take your time
                 while you look through my photos and spot the extra care I give
@@ -157,9 +129,6 @@ export default function Index() {
           </div>
           <img className=" h-80 w-full bg-black" src="" alt="" />
         </PortfolioPreview>
-        <Testimonials isDarkMode={isDarkMode}>
-          <h1 className="section-header">Testimonials</h1>
-        </Testimonials>
       </main>
     </div>
   );
