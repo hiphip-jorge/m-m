@@ -6,7 +6,7 @@ const PortfolioPreview = (props: Props) => {
   return (
     <section
       id="portfolioPreview"
-      className=" flex h-screen flex-col justify-between"
+      className="flex flex-col justify-between"
     >
       {props.children}
     </section>

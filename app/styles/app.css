@@ -31,7 +31,7 @@ h2, p {
 }
 
 .menu-bars {
-    @apply menu-topBar menu-bottomBar flex flex-col opacity-100 w-full
+    @apply menu-topBar menu-bottomBar flex flex-col opacity-100 w-full h-full
 }
 
 .menu-topBar {

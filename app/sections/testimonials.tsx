@@ -44,12 +44,12 @@ const Testimonials = (props: Props) => {
           onClick={() =>
             setTestIdx((prev) => (prev + 1) % testimonialArr.length)
           }
-          className="absolute right-0 -translate-x-12 -translate-y-36"
+          className="absolute right-0 h-12 w-12 -translate-x-12 -translate-y-36"
           isDarkMode={props.isDarkMode}
           button
         />
       </div>
-      <ul className="flex gap-2 self-center flex-wrap">
+      <ul className="flex flex-wrap gap-2 self-center">
         {testimonialArr.map((item, idx) => {
           return (
             <li

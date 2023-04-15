@@ -29,7 +29,7 @@ const CircleArrowBtn = ({
     return (
       <button
         onClick={onClick}
-        className={`${className} rounded-full button-fill--${
+        className={`${className} flex rounded-full button-fill--${
           isDarkMode ? "dark" : "light"
         } ${style === "solid" ? styles.solid : styles.outline}`}
       >
@@ -42,7 +42,7 @@ const CircleArrowBtn = ({
   } else {
     return (
       <div
-        className={`${className} rounded-full button-fill--${
+        className={`${className} flex rounded-full button-fill--${
           isDarkMode ? "dark" : "light"
         } ${style === "solid" ? styles.solid : styles.outline}`}
       >
