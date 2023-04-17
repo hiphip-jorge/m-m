@@ -4,10 +4,10 @@ import MobileMenu from "~/components/mobileMenu";
 import NavBar from "~/components/navBar";
 import PhotoStack from "~/components/photoStack";
 import Testimonial from "~/components/testimonial";
-import AboutMe from "~/sections/aboutMe";
-import PortfolioPreview from "~/sections/portfolioPreview";
-import Testimonials from "~/sections/testimonials";
-import { useThemes } from "~/utils.customHooks";
+import AboutMe from "~/components/sections/aboutMe";
+import PortfolioPreview from "~/components/sections/portfolioPreview";
+import Testimonials from "~/components/sections/testimonials";
+import { useThemes } from "~/components/hooks/use-themes";
 
 import { close_icon, gallery_icon, moon_icon, sun_icon } from "~/utils.svg";
 
@@ -71,7 +71,12 @@ export default function Index() {
           </div>
           <button className="flex items-center gap-3 self-end">
             <span className="text-button">portfolio</span>
-            <CircleArrowBtn isDarkMode={isDarkMode} className="w-12 h-12" style="outline" animate />
+            <CircleArrowBtn
+              isDarkMode={isDarkMode}
+              className="h-12 w-12"
+              style="outline"
+              animate
+            />
           </button>
         </section>
         <AboutMe>
