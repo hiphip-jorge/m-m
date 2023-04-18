@@ -1,5 +1,5 @@
 import { close_icon, moon_icon, sun_icon } from "~/utils.svg";
-import MobileMenu from "./mobileMenu";
+import MobileMenu from "../mobileMenu";
 
 type Props = {
   className?: string;

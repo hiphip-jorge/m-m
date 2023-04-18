@@ -1,5 +1,7 @@
 {
-  "name": "m-m-app-16e9",
+  "name": "m-m-moments",
+  "version": "1.0.0",
+  "description": "A photography portfolio app for sharing my work and services.",
   "private": true,
   "sideEffects": false,
   "scripts": {

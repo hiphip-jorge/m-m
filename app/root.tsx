@@ -12,7 +12,7 @@ import { useState } from "react";
 import { getUser } from "./session.server";
 
 import { useThemes } from "./components/hooks/use-themes";
-import Navbar from "~/components/navbar";
+import Navbar from "./components/sections/navbar";
 
 import favicon from "./assets/favicon.svg";
 import tailwindStylesheetUrl from "./styles/tailwind.css";
