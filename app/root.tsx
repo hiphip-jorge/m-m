@@ -13,6 +13,16 @@ import tailwindStylesheetUrl from "./styles/tailwind.css";
 import { getUser } from "./session.server";
 
 import favicon from "./assets/favicon.svg";
+import { useThemes } from "./components/hooks/use-themes";
+import { useState } from "react";
+import MobileMenu from "./components/mobileMenu";
+import Navbar from "./components/navbar";
+
+export type ContextType = {
+  isDarkMode: boolean;
+  isMenuOpen: boolean;
+  theme: { iconColor: string };
+};
 
 const lexendFontURL =
   "https://fonts.googleapis.com/css2?family=Lexend:wght@400;700&display=swap";
@@ -38,14 +48,36 @@ export async function loader({ request }: LoaderArgs) {
 }
 
 export default function App() {
+  let [isMenuOpen, setIsMenuOpen] = useState(false);
+  let { isDarkMode, toggleTheme } = useThemes();
+  let theme = { iconColor: isDarkMode ? "#eee" : "#000" };
+
+  let toggleMobileMenu = () => {
+    if (isMenuOpen) {
+      document.querySelector("body")?.classList.remove("overflow-hidden");
+      setIsMenuOpen(false);
+    } else {
+      document.querySelector("body")?.classList.add("overflow-hidden");
+      setIsMenuOpen(true);
+    }
+  };
+
   return (
     <html lang="en" className="h-full">
       <head>
         <Meta />
         <Links />
       </head>
-      <body className="h-full">
-        <Outlet />
+      <body className="bg-white dark:bg-[#222] dark:text-[#eee]">
+        <Navbar
+          open={isMenuOpen}
+          divider
+          darkMode={isDarkMode}
+          iconColor={theme.iconColor}
+          handleToggle={toggleTheme}
+          onClick={toggleMobileMenu}
+        />
+        <Outlet context={{ isDarkMode, theme, isMenuOpen }} />
         <ScrollRestoration />
         <Scripts />
         <LiveReload />
