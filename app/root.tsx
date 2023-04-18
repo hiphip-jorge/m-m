@@ -8,14 +8,14 @@ import {
   Scripts,
   ScrollRestoration,
 } from "@remix-run/react";
-
-import tailwindStylesheetUrl from "./styles/tailwind.css";
+import { useState } from "react";
 import { getUser } from "./session.server";
 
-import favicon from "./assets/favicon.svg";
 import { useThemes } from "./components/hooks/use-themes";
-import { useState } from "react";
-import Navbar from "./components/navbar";
+import Navbar from "~/components/navbar";
+
+import favicon from "./assets/favicon.svg";
+import tailwindStylesheetUrl from "./styles/tailwind.css";
 
 export type ContextType = {
   isDarkMode: boolean;
