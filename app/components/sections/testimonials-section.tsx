@@ -3,7 +3,6 @@ import CircleArrowBtn from "~/components/circleArrowBtn";
 import Testimonial from "~/components/testimonial";
 
 type Props = {
-  children: React.ReactNode;
   isDarkMode?: boolean;
 };
 
@@ -25,7 +24,7 @@ let testimonialArr = [
   },
 ];
 
-const Testimonials = (props: Props) => {
+const TestimonialsSection = (props: Props) => {
   let [testIdx, setTestIdx] = useState(0);
 
   return (
@@ -33,7 +32,7 @@ const Testimonials = (props: Props) => {
       id="testimonials"
       className="section-container flex h-screen flex-col gap-4"
     >
-      {props.children}
+      <h1 className="section-header">Testimonials</h1>
       <div>
         <Testimonial
           quote={testimonialArr[testIdx].quote}
@@ -67,4 +66,4 @@ const Testimonials = (props: Props) => {
   );
 };
 
-export default Testimonials;
+export default TestimonialsSection;
