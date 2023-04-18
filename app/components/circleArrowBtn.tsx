@@ -1,7 +1,7 @@
 import { arrow_icon } from "~/utils.svg";
 
 type Props = {
-  style?: string;
+  circleStyle?: string;
   className?: string;
   button?: boolean;
   animate?: boolean;
@@ -13,7 +13,7 @@ const CircleArrowBtn = ({
   button,
   isDarkMode,
   className = "",
-  style = "solid",
+  circleStyle = "solid",
   animate,
   onClick = () => {},
 }: Props) => {
@@ -31,10 +31,10 @@ const CircleArrowBtn = ({
         onClick={onClick}
         className={`${className} flex rounded-full button-fill--${
           isDarkMode ? "dark" : "light"
-        } ${style === "solid" ? styles.solid : styles.outline}`}
+        } ${circleStyle === "solid" ? styles.solid : styles.outline}`}
       >
         {arrow_icon(
-          style === "solid" ? styles.solidIcon : styles.outlineIcon,
+          circleStyle === "solid" ? styles.solidIcon : styles.outlineIcon,
           animate
         )}
       </button>
@@ -44,10 +44,10 @@ const CircleArrowBtn = ({
       <div
         className={`${className} flex rounded-full button-fill--${
           isDarkMode ? "dark" : "light"
-        } ${style === "solid" ? styles.solid : styles.outline}`}
+        } ${circleStyle === "solid" ? styles.solid : styles.outline}`}
       >
         {arrow_icon(
-          style === "solid" ? styles.solidIcon : styles.outlineIcon,
+          circleStyle === "solid" ? styles.solidIcon : styles.outlineIcon,
           animate
         )}
       </div>

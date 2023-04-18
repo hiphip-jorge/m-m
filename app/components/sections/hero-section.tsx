@@ -1,4 +1,3 @@
-import React from "react";
 import CircleArrowBtn from "../circleArrowBtn";
 import PhotoStack from "../photoStack";
 
@@ -7,7 +6,7 @@ type Props = {
   isMenuOpen: boolean;
 };
 
-const HeroSection = ({ isDarkMode, isMenuOpen }: Props) => {
+function HeroSection({ isDarkMode, isMenuOpen }: Props) {
   return (
     <section className="section-container flex h-[calc(100vh-64px)] flex-col items-center justify-around">
       {!isMenuOpen && <PhotoStack />}
@@ -20,12 +19,10 @@ const HeroSection = ({ isDarkMode, isMenuOpen }: Props) => {
         <CircleArrowBtn
           isDarkMode={isDarkMode}
           className="h-12 w-12"
-          style="outline"
-        //   animate
-        />
+          circleStyle="outline" />
       </button>
     </section>
   );
-};
+}
 
 export default HeroSection;

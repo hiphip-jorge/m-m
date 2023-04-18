@@ -1,5 +1,5 @@
 import { useOutletContext } from "@remix-run/react";
-import { ContextType } from "~/root";
+import { type ContextType } from "~/root";
 
 import HeroSection from "~/components/sections/hero-section";
 import AboutSection from "~/components/sections/about-section";

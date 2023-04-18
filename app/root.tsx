@@ -15,7 +15,6 @@ import { getUser } from "./session.server";
 import favicon from "./assets/favicon.svg";
 import { useThemes } from "./components/hooks/use-themes";
 import { useState } from "react";
-import MobileMenu from "./components/mobileMenu";
 import Navbar from "./components/navbar";
 
 export type ContextType = {

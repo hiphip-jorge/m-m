@@ -14,7 +14,7 @@ export let useThemes = () => {
       setIsDarkMode(true);
       return;
     }
-  });
+  }, []);
 
   let toggleTheme = () => {
     setIsDarkMode((prev) => {
