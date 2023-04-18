@@ -10,8 +10,8 @@ type Props = {
 const Testimonial = (props: Props) => {
   return (
     <article className="flex flex-col gap-4">
-      <p className="text-xl h-40">"{props.quote}"</p>
-      <div className="h-[20rem] w-full border-black border-4">
+      <p className="h-40 text-xl">"{props.quote}"</p>
+      <div className="h-[20rem] w-full border-4 border-black">
         <img className="" src={props.photoSrc} alt="photo" />
       </div>
     </article>

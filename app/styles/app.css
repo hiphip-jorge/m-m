@@ -6,40 +6,41 @@
 
 /* GENERAL  */
 html {
-    scroll-behavior: smooth;
+  scroll-behavior: smooth;
 }
 
 h1 {
-    @apply text-[32px] leading-10
+  @apply text-[32px] leading-10;
 }
 
-h2, p {
-    @apply text-[20px] leading-[28px]
+h2,
+p {
+  @apply text-[20px] leading-[28px];
 }
 
 .section-container {
-    @apply px-16 py-12
+  @apply px-16 py-12;
 }
 
 .section-header {
-    @apply font-bold
+  @apply font-bold;
 }
 
 /* NAV */
 .nav-bar_line {
-    @apply  after:absolute after:left-0 after:right-0 after:mx-auto after:top-16 after:w-[340px] after:h-[.1rem] after:bg-[#eee] dark:after:bg-[#333]
+  @apply after:absolute after:left-0 after:right-0 after:top-16 after:mx-auto after:h-[.1rem] after:w-[340px] after:bg-[#eee] dark:after:bg-[#333];
 }
 
 .menu-bars {
-    @apply menu-topBar menu-bottomBar flex flex-col opacity-100 w-full h-full
+  @apply menu-topBar menu-bottomBar flex h-full w-full flex-col opacity-100;
 }
 
 .menu-topBar {
-    @apply before:w-8 before:h-[3.5px] before:bg-black dark:before:bg-white
+  @apply before:h-[3.5px] before:w-8 before:bg-black dark:before:bg-white;
 }
 
 .menu-bottomBar {
-    @apply after:w-8 after:h-[3.5px] after:bg-black dark:after:bg-white
+  @apply after:h-[3.5px] after:w-8 after:bg-black dark:after:bg-white;
 }
 
 /* future animation use  */
@@ -54,69 +55,78 @@ h2, p {
 
 /* BUTTONS */
 .text-button {
-    @apply text-[32px] leading-[40px]
+  @apply text-[32px] leading-[40px];
 }
 
-button:hover  div > svg > .fill-icon--light, button:hover button > svg > .fill-icon--light {
-    fill: #fff;
-    stroke: #fff;
-    transition: fill ease-in-out .75s;
+button:hover div > svg > .fill-icon--light,
+button:hover button > svg > .fill-icon--light {
+  fill: #fff;
+  stroke: #fff;
+  transition: fill ease-in-out 0.75s;
 }
 
-button:hover div > svg > .fill-icon--dark, button:hover button > svg > .fill-icon--dark {
-    fill: #222;
-    stroke: #222;
-    transition: fill ease-in-out .75s;
+button:hover div > svg > .fill-icon--dark,
+button:hover button > svg > .fill-icon--dark {
+  fill: #222;
+  stroke: #222;
+  transition: fill ease-in-out 0.75s;
 }
 
-button:hover > div > .bounce, button:hover > button > .bounce {
-    animation-play-state: paused;
+button:hover > div > .bounce,
+button:hover > button > .bounce {
+  animation-play-state: paused;
 }
 
 button:hover > div > #portfolio--light {
-    color: #fff;
+  color: #fff;
 }
 
 button:hover > div > #portfolio--dark {
-    color: #000;
+  color: #000;
 }
 
 /* COMPONENTS */
 .shadow-photoStack--dark {
-    box-shadow: 25px 25px 12px rgb(0 0 0 / .75);
+  box-shadow: 25px 25px 12px rgb(0 0 0 / 0.75);
 }
 
 .button-fill--light {
-    background-image: linear-gradient(#000, #000);
-    background-position: 0% 0%;
-    background-repeat: no-repeat;
-    background-size: 0% 100%;
-    transition: background-size ease-in-out .5s, color ease-in-out .5s;
+  background-image: linear-gradient(#000, #000);
+  background-position: 0% 0%;
+  background-repeat: no-repeat;
+  background-size: 0% 100%;
+  transition: background-size ease-in-out 0.5s, color ease-in-out 0.5s;
 }
 
 button:hover .button-fill--light {
-        background-size: 100% 100%;
+  background-size: 100% 100%;
 }
 
 .button-fill--dark {
-    background-image: linear-gradient(#eee, #eee);
-    background-position: 0% 0%;
-    background-repeat: no-repeat;
-    background-size: 0% 100%;
-    transition: background-size ease-in-out .5s, color ease-in-out .5s;
+  background-image: linear-gradient(#eee, #eee);
+  background-position: 0% 0%;
+  background-repeat: no-repeat;
+  background-size: 0% 100%;
+  transition: background-size ease-in-out 0.5s, color ease-in-out 0.5s;
 }
 
 button:hover .button-fill--dark {
-        background-size: 100% 100%;
+  background-size: 100% 100%;
 }
 
 /* ANIMATIONS  */
 .bounce {
-    animation: bounce-right 1.25s linear infinite;
+  animation: bounce-right 1.25s linear infinite;
 }
 
 @keyframes bounce-right {
-    0% {transform: translateX(0);}
-    50% {transform: translateX(0.125rem);}
-    100% {transform: translateX(0);}
+  0% {
+    transform: translateX(0);
+  }
+  50% {
+    transform: translateX(0.125rem);
+  }
+  100% {
+    transform: translateX(0);
+  }
 }

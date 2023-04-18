@@ -4,7 +4,10 @@ type Props = {
 
 const AboutMe = (props: Props) => {
   return (
-    <section id="aboutMe" className="section-container h-screen flex flex-col justify-between">
+    <section
+      id="aboutMe"
+      className="section-container flex h-screen flex-col justify-between"
+    >
       {props.children}
     </section>
   );
