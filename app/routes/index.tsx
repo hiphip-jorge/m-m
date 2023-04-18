@@ -3,65 +3,51 @@ import CircleArrowBtn from "~/components/circleArrowBtn";
 import MobileMenu from "~/components/mobileMenu";
 import NavBar from "~/components/navBar";
 import PhotoStack from "~/components/photoStack";
-import Testimonial from "~/components/testimonial";
 import AboutMe from "~/components/sections/aboutMe";
 import PortfolioPreview from "~/components/sections/portfolioPreview";
 import Testimonials from "~/components/sections/testimonials";
 import { useThemes } from "~/components/hooks/use-themes";
 
-import { close_icon, gallery_icon, moon_icon, sun_icon } from "~/utils.svg";
+import { gallery_icon } from "~/utils.svg";
 
 export default function Index() {
   let { isDarkMode, toggleTheme } = useThemes();
-  let [isMenuOpen, setIsMenuOpen] = useState(false);
   let theme = { iconColor: isDarkMode ? "#eee" : "#000" };
+  let [isMenuOpen, setIsMenuOpen] = useState(false);
+
+  let toggleMobileMenu = () => {
+    if (isMenuOpen) {
+      document.querySelector("body")?.classList.remove("overflow-hidden");
+      setIsMenuOpen(false);
+    } else {
+      document.querySelector("body")?.classList.add("overflow-hidden");
+      setIsMenuOpen(true);
+    }
+  };
 
   if (isMenuOpen) {
     return (
       <MobileMenu isDarkMode={isDarkMode}>
-        <NavBar>
-          <button
-            onClick={() => {
-              document
-                .querySelector("body")
-                ?.classList.remove("overflow-hidden");
-              setIsMenuOpen(false);
-            }}
-          >
-            {close_icon(theme.iconColor)}
-          </button>
-          <span>M&M</span>
-          <button className="h-8 w-8" onClick={toggleTheme}>
-            {isDarkMode
-              ? moon_icon(theme.iconColor)
-              : sun_icon(theme.iconColor)}
-          </button>{" "}
-        </NavBar>
+        <NavBar
+          darkMode={isDarkMode}
+          iconColor={theme.iconColor}
+          handleToggle={toggleTheme}
+          onClick={toggleMobileMenu}
+        />
       </MobileMenu>
     );
   }
 
   return (
     <div className="bg-white dark:bg-[#222] dark:text-[#eee]">
-      <header>
-        <NavBar divider>
-          <button
-            className="flex h-8 w-8"
-            onClick={() => {
-              document.querySelector("body")?.classList.add("overflow-hidden");
-              setIsMenuOpen(true);
-            }}
-          >
-            <span className="menu-bars w-full text-2xl leading-6">&</span>
-          </button>
-          <span>M&M</span>
-          <button className="h-8 w-8" onClick={toggleTheme}>
-            {isDarkMode
-              ? moon_icon(theme.iconColor)
-              : sun_icon(theme.iconColor)}
-          </button>
-        </NavBar>
-      </header>
+      <NavBar
+        open
+        divider
+        darkMode={isDarkMode}
+        iconColor={theme.iconColor}
+        handleToggle={toggleTheme}
+        onClick={toggleMobileMenu}
+      />
       <main className="min-h-screen sm:flex sm:items-center sm:justify-center">
         <section className="section-container flex h-[calc(100vh-64px)] flex-col items-center justify-around">
           {!isMenuOpen && <PhotoStack />}
