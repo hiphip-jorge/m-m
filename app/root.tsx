@@ -13,6 +13,7 @@ import { getUser } from "./session.server";
 
 import { useThemes } from "./components/hooks/use-themes";
 import Navbar from "./components/navbar";
+import Footer from "./components/footer";
 
 import favicon from "./assets/favicon.svg";
 import tailwindStylesheetUrl from "./styles/tailwind.css";
@@ -77,6 +78,7 @@ export default function App() {
           onClick={toggleMobileMenu}
         />
         <Outlet context={{ isDarkMode, theme, isMenuOpen }} />
+        <Footer isDark={isDarkMode} />
         <ScrollRestoration />
         <Scripts />
         <LiveReload />

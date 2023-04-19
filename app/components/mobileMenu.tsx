@@ -24,7 +24,7 @@ const MobileMenu = (props: Props) => {
             </li>
           </ul>
         </main>
-        <footer className="self-center p-10">
+        <footer className="self-center p-10 pb-24">
           <Socials isDark={props.isDarkMode} />
         </footer>
       </div>
