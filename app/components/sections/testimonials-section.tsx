@@ -30,7 +30,7 @@ const TestimonialsSection = (props: Props) => {
   return (
     <section
       id="testimonials"
-      className="section-container flex h-screen flex-col gap-4"
+      className="section-container flex flex-col gap-4"
     >
       <h1 className="section-header">Testimonials</h1>
       <div>

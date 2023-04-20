@@ -4,7 +4,7 @@ const AboutSection = () => {
   return (
     <section
       id="AboutSection"
-      className="section-container flex h-screen flex-col gap-8"
+      className="section-container flex flex-col gap-8"
     >
       <div className="flex h-[350px] whitespace-nowrap">
         <div className="section-header z-10 h-fit">
