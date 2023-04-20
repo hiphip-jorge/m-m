@@ -1,4 +1,5 @@
 import { gallery_icon } from "~/utils.svg";
+import photo2 from "~/photos/02.jpg";
 
 type Props = {
   isDarkMode: boolean;
@@ -33,7 +34,7 @@ const PortfolioSection = ({ isDarkMode, theme }: Props) => {
           </button>
         </article>
       </div>
-      <img className=" h-80 w-full bg-black" src="" alt="" />
+      <img className="w-full bg-black" src={photo2} alt="" />
     </section>
   );
 };
