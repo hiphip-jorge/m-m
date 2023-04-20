@@ -20,8 +20,7 @@ const CircleArrowBtn = ({
   let styles = {
     solid: "bg-black dark:bg-[#eee]",
     solidIcon: isDarkMode ? "#222" : "#fff",
-    outline:
-      "bg-white border-[3.5px] border-black dark:border-[#eee] dark:bg-[#222]",
+    outline: "bg-transparent border-[3.5px] border-black dark:border-[#eee]",
     outlineIcon: isDarkMode ? "#fff" : "#000",
   };
 

@@ -22,6 +22,7 @@ export type ContextType = {
   isDarkMode: boolean;
   isMenuOpen: boolean;
   theme: { iconColor: string };
+  toggleMobileMenu: () => void;
 };
 
 const lexendFontURL =
@@ -63,19 +64,19 @@ export default function App() {
   };
 
   return (
-    <html lang="en" className="h-full">
+    <html lang="en">
       <head>
         <Meta />
         <Links />
       </head>
-      <body className="bg-white dark:bg-[#222] dark:text-[#eee]">
+      <body className="bg-gradient-to-br from-[#fff] to-[#eee] bg-no-repeat dark:bg-[#222] dark:from-[#222] dark:to-[#111] dark:text-[#eee]">
         <Navbar
           open={isMenuOpen}
           divider
           darkMode={isDarkMode}
           iconColor={theme.iconColor}
-          handleToggle={toggleTheme}
-          onClick={toggleMobileMenu}
+          handleThemeToggle={toggleTheme}
+          handleMenuToggle={toggleMobileMenu}
         />
         <Outlet context={{ isDarkMode, theme, isMenuOpen }} />
         <Footer isDark={isDarkMode} />

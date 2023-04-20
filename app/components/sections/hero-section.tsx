@@ -19,7 +19,8 @@ function HeroSection({ isDarkMode, isMenuOpen }: Props) {
         <CircleArrowBtn
           isDarkMode={isDarkMode}
           className="h-12 w-12"
-          circleStyle="outline" />
+          circleStyle="outline"
+        />
       </button>
     </section>
   );

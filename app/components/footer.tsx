@@ -9,7 +9,7 @@ const Footer = (props: Props) => {
     <footer className="section-container flex flex-col items-center bg-[#222] text-center text-[#eee] dark:bg-[#eee] dark:text-[#222]">
       <span className="mb-6 text-[2rem] font-bold">M&M</span>
       <Socials isDark={props.isDark} solid />
-      <a href="mailto:someone@example.com" className="mt-6 underline text-lg">
+      <a href="mailto:someone@example.com" className="mt-6 text-lg underline">
         myemail@example.com
       </a>
       <div className="mt-12">

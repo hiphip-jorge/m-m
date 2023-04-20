@@ -1,4 +1,5 @@
 import { close_icon, moon_icon, sun_icon } from "~/utils.svg";
+import Logo from "./logo";
 import MobileMenu from "./mobileMenu";
 
 type Props = {
@@ -6,8 +7,8 @@ type Props = {
   darkMode?: boolean;
   divider?: boolean;
   iconColor?: string;
-  handleToggle?: () => void;
-  onClick?: () => void;
+  handleThemeToggle?: () => void;
+  handleMenuToggle?: () => void;
   open?: boolean;
 };
 
@@ -17,13 +18,16 @@ const Navbar = (props: Props) => {
 
   if (props.open) {
     return (
-      <MobileMenu isDarkMode={props.darkMode || false}>
+      <MobileMenu
+        isDarkMode={props.darkMode || false}
+        handleMenuToggle={props.handleMenuToggle}
+      >
         <nav className={className}>
-          <button className="h-8 w-8" onClick={props.onClick}>
+          <button className="h-8 w-8" onClick={props.handleMenuToggle}>
             {close_icon(props.iconColor)}
           </button>
-          <span>M&M</span>
-          <button className="h-8 w-8" onClick={props.handleToggle}>
+          <Logo onClick={props.handleMenuToggle} />
+          <button className="h-8 w-8" onClick={props.handleThemeToggle}>
             {props.darkMode
               ? moon_icon(props.iconColor)
               : sun_icon(props.iconColor)}
@@ -35,11 +39,11 @@ const Navbar = (props: Props) => {
 
   return (
     <nav className={className + " nav-bar_line"}>
-      <button className="h-8 w-8" onClick={props.onClick}>
+      <button className="h-8 w-8" onClick={props.handleMenuToggle}>
         <span className="menu-bars w-full text-2xl leading-6">&</span>
       </button>
-      <span>M&M</span>
-      <button className="h-8 w-8" onClick={props.handleToggle}>
+      <Logo />
+      <button className="h-8 w-8" onClick={props.handleThemeToggle}>
         {props.darkMode
           ? moon_icon(props.iconColor)
           : sun_icon(props.iconColor)}

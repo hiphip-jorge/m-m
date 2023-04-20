@@ -1,9 +1,11 @@
+import { NavLink } from "@remix-run/react";
 import React from "react";
 import Socials from "./socials";
 
 type Props = {
   children?: React.ReactNode;
   isDarkMode: boolean;
+  handleMenuToggle?: () => void;
 };
 
 const MobileMenu = (props: Props) => {
@@ -14,10 +16,14 @@ const MobileMenu = (props: Props) => {
         <main className="p-12 text-[2rem] text-black dark:text-[#eee]">
           <ul className="flex flex-col gap-6">
             <li>
-              <a href="#aboutMe">About Me</a>
+              <button onClick={props.handleMenuToggle}>
+                <NavLink to="/about">About Me</NavLink>
+              </button>
             </li>
             <li>
-              <a href="#portfolioPreview">Portfolio</a>
+              <button onClick={props.handleMenuToggle}>
+                <NavLink to="/portfolio">Portfolio</NavLink>
+              </button>
             </li>
             <li>
               <a href="#testimonials">Testimonials</a>
@@ -26,6 +32,12 @@ const MobileMenu = (props: Props) => {
         </main>
         <footer className="self-center p-10 pb-32">
           <Socials isDark={props.isDarkMode} />
+          <button
+            className="section-header mt-8 w-full bg-[#222] p-2 text-center text-2xl text-[#eee] shadow-lg"
+            onClick={props.handleMenuToggle}
+          >
+            Close
+          </button>
         </footer>
       </div>
     </aside>
