@@ -1,10 +1,10 @@
-import photo3 from "~/photos/03.jpg";
+import photo2 from "~/photos/02.jpg";
 
 const AboutSection = () => {
   return (
     <section
       id="AboutSection"
-      className="section-container flex h-screen flex-col justify-between"
+      className="section-container flex h-screen flex-col gap-8"
     >
       <div className="flex h-[350px] whitespace-nowrap">
         <div className="section-header z-10 h-fit">
@@ -14,7 +14,7 @@ const AboutSection = () => {
         </div>
 
         <div className="">
-          <img className="absolute right-0 w-[260px] " src={photo3} alt="" />
+          <img className="absolute right-0 w-[260px] " src={photo2} alt="" />
         </div>
       </div>
       <article>
