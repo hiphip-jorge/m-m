@@ -33,7 +33,7 @@ const MobileMenu = (props: Props) => {
         <footer className="self-center p-10 pb-32">
           <Socials isDark={props.isDarkMode} />
           <button
-            className="section-header mt-8 w-full bg-[#222] p-2 text-center text-2xl text-[#eee] shadow-lg"
+            className="section-header mt-8 w-full bg-[#222] p-2 text-center text-2xl text-[#eee] shadow-lg dark:bg-[#eee] dark:text-[#222]"
             onClick={props.handleMenuToggle}
           >
             Close

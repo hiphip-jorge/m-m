@@ -26,6 +26,14 @@ p {
   @apply font-bold;
 }
 
+.bg-gradient-light {
+  @apply from-[#fff] to-[#eee]
+}
+
+.bg-gradient-dark {
+  @apply dark:from-[#222] dark:to-[#111]
+ }
+
 /* NAV */
 .nav-bar_line {
   @apply after:absolute after:left-0 after:right-0 after:top-16 after:mx-auto after:h-[.1rem] after:w-[340px] after:bg-[#eee] dark:after:bg-[#333];

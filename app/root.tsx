@@ -69,7 +69,7 @@ export default function App() {
         <Meta />
         <Links />
       </head>
-      <body className="bg-gradient-to-br from-[#fff] to-[#eee] bg-no-repeat dark:bg-[#222] dark:from-[#222] dark:to-[#111] dark:text-[#eee]">
+      <body className="bg-gradient-light bg-gradient-dark bg-gradient-to-br bg-no-repeat dark:text-[#eee]">
         <Navbar
           open={isMenuOpen}
           divider
