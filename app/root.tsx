@@ -78,7 +78,7 @@ export default function App() {
           handleThemeToggle={toggleTheme}
           handleMenuToggle={toggleMobileMenu}
         />
-        <Outlet context={{ isDarkMode, theme, isMenuOpen }} />
+        <Outlet context={{ isDarkMode, theme, isMenuOpen, toggleMobileMenu }} />
         <Footer isDark={isDarkMode} />
         <ScrollRestoration />
         <Scripts />
