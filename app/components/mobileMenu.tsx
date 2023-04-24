@@ -1,4 +1,5 @@
 import { NavLink } from "@remix-run/react";
+import { motion } from "framer-motion";
 import React from "react";
 import Socials from "./socials";
 
@@ -10,7 +11,12 @@ type Props = {
 
 const MobileMenu = (props: Props) => {
   return (
-    <aside className="fixed top-0 bottom-0 left-0 right-0 z-50 bg-white dark:bg-[#222]">
+    <motion.aside
+      className="fixed top-0 bottom-0 left-0 right-0 z-50 bg-white dark:bg-[#222]"
+      initial={{ x: "-100%" }}
+      animate={{ x: 0 }}
+      exit={{ x: "-100%" }}
+    >
       {props.children}
       <div className="flex h-[calc(100vh-64px)]  flex-col justify-between">
         <main className="p-12 text-[2rem] text-black dark:text-[#eee]">
@@ -40,7 +46,7 @@ const MobileMenu = (props: Props) => {
           </button>
         </footer>
       </div>
-    </aside>
+    </motion.aside>
   );
 };
 

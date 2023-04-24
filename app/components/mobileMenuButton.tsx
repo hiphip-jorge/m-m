@@ -1,3 +1,4 @@
+import { motion } from "framer-motion";
 import { close_icon } from "~/utils.svg";
 
 type Props = {
@@ -13,12 +14,14 @@ const MobileMenuButton = (props: Props) => {
 
   return (
     <>
-      <button
-        className="sticky top-12 left-4 z-50 h-16 w-16 rounded-sm bg-[#eee] p-4 shadow-2xl shadow-black dark:bg-[#222]"
+      <motion.button
+        className="sticky top-12 left-4 z-50 h-16 w-16 rounded-sm bg-white p-4 shadow-2xl shadow-black dark:bg-[#222]"
         onClick={props.handleMenuToggle}
+        whileHover={{ scale: 1.1 }}
+        whileTap={{ scale: 0.9 }}
       >
         <span className="menu-bars w-full text-2xl leading-6">&</span>
-      </button>
+      </motion.button>
       {props.children}
     </>
   );
