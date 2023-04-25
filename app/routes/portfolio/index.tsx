@@ -13,7 +13,7 @@ const Index = (props: Props) => {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: false }}
             transition={{ duration: 0.3 }}
-            className="h-80 w-64 rounded-md bg-[#222]"
+            className="h-80 w-64 rounded-md bg-[#eee] text-black dark:text-white shadow-2xl dark:bg-[#222]"
           >
             In Action
           </motion.li>
@@ -22,7 +22,7 @@ const Index = (props: Props) => {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: false }}
             transition={{ duration: 0.3 }}
-            className="h-80 w-64 rounded-md bg-[#222]"
+            className="h-80 w-64 rounded-md bg-[#eee] text-black dark:text-white shadow-2xl dark:bg-[#222]"
           >
             Portraits
           </motion.li>
@@ -31,7 +31,7 @@ const Index = (props: Props) => {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: false }}
             transition={{ duration: 0.3 }}
-            className="h-80 w-64 rounded-md bg-[#222]"
+            className="h-80 w-64 rounded-md bg-[#eee] text-black dark:text-white shadow-2xl dark:bg-[#222]"
           >
             Weddings
           </motion.li>
@@ -40,7 +40,7 @@ const Index = (props: Props) => {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: false }}
             transition={{ duration: 0.3 }}
-            className="h-80 w-64 rounded-md bg-[#222]"
+            className="h-80 w-64 rounded-md bg-[#eee] text-black dark:text-white shadow-2xl dark:bg-[#222]"
           >
             Nature
           </motion.li>
@@ -49,7 +49,7 @@ const Index = (props: Props) => {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: false }}
             transition={{ duration: 0.3 }}
-            className="h-80 w-64 rounded-md bg-[#222]"
+            className="h-80 w-64 rounded-md bg-[#eee] text-black dark:text-white shadow-2xl dark:bg-[#222]"
           >
             Culture
           </motion.li>
@@ -58,7 +58,7 @@ const Index = (props: Props) => {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: false }}
             transition={{ duration: 0.3 }}
-            className="h-80 w-64 rounded-md bg-[#222]"
+            className="h-80 w-64 rounded-md bg-[#eee] text-black dark:text-white shadow-2xl dark:bg-[#222]"
           >
             Kids
           </motion.li>
@@ -67,7 +67,7 @@ const Index = (props: Props) => {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: false }}
             transition={{ duration: 0.3 }}
-            className="h-80 w-64 rounded-md bg-[#222]"
+            className="h-80 w-64 rounded-md bg-[#eee] text-black dark:text-white shadow-2xl dark:bg-[#222]"
           >
             Sports
           </motion.li>
