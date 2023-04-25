@@ -1,5 +1,5 @@
 import { motion } from "framer-motion";
-import { close_icon } from "~/utils.svg";
+// import { close_icon } from "~/utils.svg";
 
 type Props = {
   children?: React.ReactNode;
