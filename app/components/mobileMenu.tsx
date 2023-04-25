@@ -16,6 +16,7 @@ const MobileMenu = (props: Props) => {
       initial={{ x: "-100%" }}
       animate={{ x: 0 }}
       exit={{ x: "-100%" }}
+      transition={{ duration: 0.1 }}
     >
       {props.children}
       <div className="flex h-[calc(100vh-64px)]  flex-col justify-between">

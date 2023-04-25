@@ -17,6 +17,7 @@ import Footer from "./components/footer";
 
 import favicon from "./assets/favicon.svg";
 import tailwindStylesheetUrl from "./styles/tailwind.css";
+import ProgressBar from "./components/progressBar";
 
 export type ContextType = {
   isDarkMode: boolean;
@@ -78,6 +79,7 @@ export default function App() {
           handleThemeToggle={toggleTheme}
           handleMenuToggle={toggleMobileMenu}
         />
+        <ProgressBar />
         <Outlet context={{ isDarkMode, theme, isMenuOpen, toggleMobileMenu }} />
         <Footer isDark={isDarkMode} />
         <ScrollRestoration />

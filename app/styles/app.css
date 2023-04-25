@@ -18,6 +18,11 @@ p {
   @apply text-[20px] leading-[28px];
 }
 
+.progress-bar {
+  @apply fixed top-0 left-0 right-0 h-1 bg-black dark:bg-white;
+  transform-origin: 0%;
+}
+
 .section-container {
   @apply px-16 py-12;
 }
