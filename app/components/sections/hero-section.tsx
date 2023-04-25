@@ -1,3 +1,4 @@
+import { Link } from "@remix-run/react";
 import CircleArrowBtn from "../circleArrowBtn";
 import PhotoStack from "../photoStack";
 
@@ -14,14 +15,14 @@ function HeroSection({ isDarkMode, isMenuOpen }: Props) {
         <h1 className="font-bold">Experience Photography</h1>
         <h2>The little things give light to the perfect moment.</h2>
       </div>
-      <button className="flex items-center gap-3 self-end">
+      <Link className="flex items-center gap-3 self-end" to="/portfolio">
         <span className="text-button">portfolio</span>
         <CircleArrowBtn
           isDarkMode={isDarkMode}
           className="h-12 w-12"
           circleStyle="outline"
         />
-      </button>
+      </Link>
     </section>
   );
 }

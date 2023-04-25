@@ -71,15 +71,15 @@ p {
   @apply text-[32px] leading-[40px];
 }
 
-button:hover div > svg > .fill-icon--light,
-button:hover button > svg > .fill-icon--light {
+a:hover div > svg > .fill-icon--light,
+a:hover button > svg > .fill-icon--light {
   fill: #fff;
   stroke: #fff;
   transition: fill ease-in-out 0.75s;
 }
 
-button:hover div > svg > .fill-icon--dark,
-button:hover button > svg > .fill-icon--dark {
+a:hover div > svg > .fill-icon--dark,
+a:hover button > svg > .fill-icon--dark {
   fill: #222;
   stroke: #222;
   transition: fill ease-in-out 0.75s;
@@ -90,11 +90,11 @@ button:hover > button > .bounce {
   animation-play-state: paused;
 }
 
-button:hover > div > #portfolio--light {
+a:hover > div > #portfolio--light {
   color: #fff;
 }
 
-button:hover > div > #portfolio--dark {
+a:hover > div > #portfolio--dark {
   color: #000;
 }
 

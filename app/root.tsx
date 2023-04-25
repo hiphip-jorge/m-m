@@ -18,6 +18,7 @@ import Footer from "./components/footer";
 import favicon from "./assets/favicon.svg";
 import tailwindStylesheetUrl from "./styles/tailwind.css";
 import ProgressBar from "./components/progressBar";
+import { AnimatePresence, motion } from "framer-motion";
 
 export type ContextType = {
   isDarkMode: boolean;
@@ -71,17 +72,28 @@ export default function App() {
         <Links />
       </head>
       <body className="bg-gradient-light bg-gradient-dark bg-gradient-to-br bg-no-repeat dark:text-[#eee]">
-        <Navbar
-          open={isMenuOpen}
-          divider
-          darkMode={isDarkMode}
-          iconColor={theme.iconColor}
-          handleThemeToggle={toggleTheme}
-          handleMenuToggle={toggleMobileMenu}
-        />
-        <ProgressBar />
-        <Outlet context={{ isDarkMode, theme, isMenuOpen, toggleMobileMenu }} />
-        <Footer isDark={isDarkMode} />
+        <AnimatePresence>
+          <motion.div
+            initial={{ opacity: 0, x: -100 }}
+            animate={{ opacity: 1, x: 0 }}
+            exit={{ opacity: 0, x: 100 }}
+            transition={{ duration: 0.5, delay: 0.2 }}
+          >
+            <Navbar
+              open={isMenuOpen}
+              divider
+              darkMode={isDarkMode}
+              iconColor={theme.iconColor}
+              handleThemeToggle={toggleTheme}
+              handleMenuToggle={toggleMobileMenu}
+            />
+            <ProgressBar />
+            <Outlet
+              context={{ isDarkMode, theme, isMenuOpen, toggleMobileMenu }}
+            />
+            <Footer isDark={isDarkMode} />
+          </motion.div>
+        </AnimatePresence>
         <ScrollRestoration />
         <Scripts />
         <LiveReload />

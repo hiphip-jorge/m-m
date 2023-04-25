@@ -51,7 +51,7 @@ const Navbar = (props: Props) => {
   );
 
   return (
-    <AnimatePresence initial={false} mode="wait" onExitComplete={() => null}>
+    <AnimatePresence>
       {props.open ? openMenuNav : closedMenuNav}
     </AnimatePresence>
   );
