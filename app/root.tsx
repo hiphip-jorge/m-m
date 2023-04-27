@@ -70,7 +70,6 @@ export default function App() {
       <body className="bg-gradient-light bg-gradient-dark bg-gradient-to-br bg-no-repeat dark:text-[#eee]">
         {isMenuOpen ? (
           <AnimatePresence
-            // initial={false}
             mode="wait"
             onExitComplete={() => console.log("exit complete")}
           >
@@ -82,7 +81,6 @@ export default function App() {
             />
           </AnimatePresence>
         ) : (
-          <>
           <TransitionAnimation>
             <ProgressBar />
             <Navbar
@@ -98,7 +96,6 @@ export default function App() {
             />
             <Footer isDark={isDarkMode} />
           </TransitionAnimation>
-          </>
         )}
         <ScrollRestoration />
         <Scripts />

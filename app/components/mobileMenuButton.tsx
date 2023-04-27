@@ -1,5 +1,5 @@
 import { motion } from "framer-motion";
-// import { close_icon } from "~/utils.svg";
+import { useEffect, useState } from "react";
 
 type Props = {
   children?: React.ReactNode;
@@ -8,8 +8,25 @@ type Props = {
 };
 
 const MobileMenuButton = (props: Props) => {
+  let [isScrolling, setIsScrolling] = useState(false);
+
+  useEffect(() => {
+    window.addEventListener("scroll", () => {
+      setIsScrolling(true);
+    });
+
+    return () =>
+      window.removeEventListener("scroll", () => console.log("removed"));
+  }, []);
+
   if (props.isMenuOpen) {
     return null;
+  }
+
+  if (isScrolling) {
+    setTimeout(() => {
+      setIsScrolling(false);
+    }, 3500);
   }
 
   return (
@@ -19,6 +36,9 @@ const MobileMenuButton = (props: Props) => {
         onClick={props.handleMenuToggle}
         whileHover={{ scale: 1.1 }}
         whileTap={{ scale: 0.9 }}
+        initial={{ opacity: 0, x: -100 }}
+        animate={isScrolling ? { opacity: 1, x: 0 } : { opacity: 0, x: -100 }}
+        transition={{ duration: 0.3 }}
       >
         <span className="menu-bars w-full text-2xl leading-6">&</span>
       </motion.button>

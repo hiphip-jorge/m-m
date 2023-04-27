@@ -1,3 +1,6 @@
+import { AnimatePresence } from "framer-motion";
+import TransitionAnimation from "./transitionAnimation";
+
 type Props = {
   quote: string;
   photoSrc: string;
@@ -7,10 +10,17 @@ type Props = {
 const Testimonial = (props: Props) => {
   return (
     <article className="flex flex-col gap-4">
-      <p className="h-40 text-xl">"{props.quote}"</p>
-      <div className="h-[20rem] w-full border-4 border-black">
-        {/* <img className="" src={props.photoSrc} alt="custom best pic" /> */}
-      </div>
+      <AnimatePresence
+        mode="wait"
+        onExitComplete={() => console.log("exit complete")}
+      >
+        <TransitionAnimation>
+          <p className="h-40 text-xl">"{props.quote}"</p>
+          <div className="h-[20rem] w-full border-4 border-black">
+            {/* <img className="" src={props.photoSrc} alt="custom best pic" /> */}
+          </div>
+        </TransitionAnimation>
+      </AnimatePresence>
     </article>
   );
 };

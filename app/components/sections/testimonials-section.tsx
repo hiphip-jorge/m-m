@@ -1,6 +1,7 @@
 import { useState } from "react";
 import CircleArrowBtn from "~/components/circleArrowBtn";
 import Testimonial from "~/components/testimonial";
+import TransitionAnimation from "../transitionAnimation";
 
 type Props = {
   isDarkMode?: boolean;
@@ -35,8 +36,9 @@ const TestimonialsSection = (props: Props) => {
       <h1 className="section-header">Testimonials</h1>
       <div>
         <Testimonial
+          key={testIdx}
           quote={testimonialArr[testIdx].quote}
-          photoSrc={testimonialArr[testIdx].photoSrc}
+          photoSrc=""
           isDarkMode={props.isDarkMode}
         />
         <CircleArrowBtn
