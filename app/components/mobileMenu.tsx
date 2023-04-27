@@ -1,24 +1,32 @@
 import { NavLink } from "@remix-run/react";
-import { motion } from "framer-motion";
-import React from "react";
+import { AnimatePresence, motion } from "framer-motion";
+import Navbar from "./navbar";
 import Socials from "./socials";
 
 type Props = {
-  children?: React.ReactNode;
-  isDarkMode: boolean;
+  isDarkMode?: boolean;
+  iconColor?: string;
+  handleThemeToggle?: () => void;
   handleMenuToggle?: () => void;
 };
 
 const MobileMenu = (props: Props) => {
   return (
-    <motion.aside
-      className="fixed top-0 bottom-0 left-0 right-0 z-50 bg-white dark:bg-[#222]"
+    <motion.div
+      key={Math.random().toString()}
+      className="absolute top-0 bottom-0 z-50 h-full w-full overflow-hidden bg-white dark:bg-[#222]"
       initial={{ x: "-100%" }}
       animate={{ x: 0 }}
-      exit={{ x: "-100%" }}
-      transition={{ duration: 0.1 }}
+      exit={{ x: "100%" }}
+      transition={{ duration: 0.3 }}
     >
-      {props.children}
+      <Navbar
+        darkMode={props.isDarkMode}
+        handleThemeToggle={props.handleThemeToggle}
+        handleMenuToggle={props.handleMenuToggle}
+        iconColor={props.iconColor}
+        isOpen={true}
+      />
       <div className="flex h-[calc(100vh-64px)]  flex-col justify-between">
         <main className="p-12 text-[2rem] text-black dark:text-[#eee]">
           <ul className="flex flex-col gap-6">
@@ -47,7 +55,7 @@ const MobileMenu = (props: Props) => {
           </button>
         </footer>
       </div>
-    </motion.aside>
+    </motion.div>
   );
 };
 

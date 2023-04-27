@@ -9,7 +9,7 @@ const Testimonial = (props: Props) => {
     <article className="flex flex-col gap-4">
       <p className="h-40 text-xl">"{props.quote}"</p>
       <div className="h-[20rem] w-full border-4 border-black">
-        <img className="" src={props.photoSrc} alt="custom best pic" />
+        {/* <img className="" src={props.photoSrc} alt="custom best pic" /> */}
       </div>
     </article>
   );

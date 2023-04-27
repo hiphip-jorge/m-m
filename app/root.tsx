@@ -18,7 +18,9 @@ import Footer from "./components/footer";
 import favicon from "./assets/favicon.svg";
 import tailwindStylesheetUrl from "./styles/tailwind.css";
 import ProgressBar from "./components/progressBar";
-import { AnimatePresence, motion } from "framer-motion";
+import MobileMenu from "./components/mobileMenu";
+import { AnimatePresence } from "framer-motion";
+import TransitionAnimation from "./components/transitionAnimation";
 
 export type ContextType = {
   isDarkMode: boolean;
@@ -56,13 +58,7 @@ export default function App() {
   let theme = { iconColor: isDarkMode ? "#eee" : "#000" };
 
   let toggleMobileMenu = () => {
-    if (isMenuOpen) {
-      document.querySelector("body")?.classList.remove("overflow-hidden");
-      setIsMenuOpen(false);
-    } else {
-      document.querySelector("body")?.classList.add("overflow-hidden");
-      setIsMenuOpen(true);
-    }
+    isMenuOpen ? setIsMenuOpen(false) : setIsMenuOpen(true);
   };
 
   return (
@@ -72,28 +68,38 @@ export default function App() {
         <Links />
       </head>
       <body className="bg-gradient-light bg-gradient-dark bg-gradient-to-br bg-no-repeat dark:text-[#eee]">
-        <AnimatePresence>
-          <motion.div
-            initial={{ opacity: 0, x: -100 }}
-            animate={{ opacity: 1, x: 0 }}
-            exit={{ opacity: 0, x: 100 }}
-            transition={{ duration: 0.5, delay: 0.2 }}
+        {isMenuOpen ? (
+          <AnimatePresence
+            // initial={false}
+            mode="wait"
+            onExitComplete={() => console.log("exit complete")}
           >
+            <MobileMenu
+              isDarkMode={isDarkMode}
+              handleMenuToggle={toggleMobileMenu}
+              handleThemeToggle={toggleTheme}
+              iconColor={theme.iconColor}
+            />
+          </AnimatePresence>
+        ) : (
+          <>
+          <TransitionAnimation>
+            <ProgressBar />
             <Navbar
-              open={isMenuOpen}
+              isOpen={isMenuOpen}
               divider
               darkMode={isDarkMode}
               iconColor={theme.iconColor}
               handleThemeToggle={toggleTheme}
               handleMenuToggle={toggleMobileMenu}
             />
-            <ProgressBar />
             <Outlet
               context={{ isDarkMode, theme, isMenuOpen, toggleMobileMenu }}
             />
             <Footer isDark={isDarkMode} />
-          </motion.div>
-        </AnimatePresence>
+          </TransitionAnimation>
+          </>
+        )}
         <ScrollRestoration />
         <Scripts />
         <LiveReload />
