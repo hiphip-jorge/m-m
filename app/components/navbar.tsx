@@ -11,11 +11,10 @@ type Props = {
 };
 
 const Navbar = (props: Props) => {
-  let className =
-    "flex h-16 items-center justify-between p-3 font-lexend text-[2rem] font-bold text-[#000] dark:text-[#eee]";
+  let className = "navbar";
 
   let openMenuButton = (
-    <button className="h-8 w-8" onClick={props.handleMenuToggle}>
+    <button className="h-8 w-8 md:hidden" onClick={props.handleMenuToggle}>
       <span className="menu-bars w-full text-2xl leading-6">&</span>
     </button>
   );

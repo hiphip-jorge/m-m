@@ -9,12 +9,10 @@ type Props = {
 
 const MobileMenuButton = (props: Props) => {
   let [isScrolling, setIsScrolling] = useState(false);
-  let [y, setY] = useState(0);
 
   useEffect(() => {
     window.addEventListener("scroll", () => {
       setIsScrolling(true);
-      setY(window.scrollY);
     });
 
     return () =>
@@ -36,9 +34,7 @@ const MobileMenuButton = (props: Props) => {
   return (
     <>
       <motion.button
-        className={`sticky top-12 left-4 z-50 h-16 w-16 rounded-sm bg-white p-4 shadow-2xl shadow-black dark:bg-[#222] ${
-          y < 635 ? "opacity-0" : "opacity-100"
-        }`}
+        className="mobileMenuButton"
         onClick={props.handleMenuToggle}
         whileHover={{ scale: 1.1 }}
         whileTap={{ scale: 0.9 }}

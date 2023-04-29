@@ -9,7 +9,7 @@ type Props = {
 
 function HeroSection({ isDarkMode, isMenuOpen }: Props) {
   return (
-    <section className="section-container flex h-[calc(100vh-64px)] flex-col items-center justify-around">
+    <section className="section-container hero">
       {!isMenuOpen && <PhotoStack />}
       <div className="mt-4 flex flex-col gap-3">
         <h1 className="font-bold">Experience Photography</h1>

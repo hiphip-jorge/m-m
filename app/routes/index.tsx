@@ -12,7 +12,7 @@ export default function Index() {
     useOutletContext<ContextType>();
 
   return (
-    <main className="min-h-screen sm:flex sm:items-center sm:justify-center">
+    <main>
       <HeroSection isDarkMode={isDarkMode} isMenuOpen={isMenuOpen} />
       <MobileMenuButton
         handleMenuToggle={toggleMobileMenu}

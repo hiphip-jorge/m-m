@@ -143,3 +143,33 @@ button:hover .button-fill--dark {
     transform: translateX(0);
   }
 }
+
+/* COMPONENTS */
+.navbar {
+  @apply flex h-16 items-center justify-between p-3 font-lexend text-[2rem] font-bold text-[#000] dark:text-[#eee];
+}
+
+.card-label {
+  @apply absolute bottom-4 right-4 rounded-sm bg-[#222] p-1 text-2xl font-bold text-[#eee];
+}
+
+.footer-sm {
+  @apply section-container flex flex-col items-center gap-4 bg-[#222] text-center text-[#eee] dark:bg-[#eee] dark:text-[#222];
+}
+
+.mobileMenu {
+  @apply absolute top-0 bottom-0 z-50 h-full w-full overflow-hidden bg-white dark:bg-[#222] sm:hidden;
+}
+
+.mobileMenuButton {
+  @apply sticky top-12 left-4 z-50 h-16 w-16 rounded-sm bg-white p-4 shadow-2xl shadow-black dark:bg-[#222] md:hidden;
+}
+
+/* SECTIONS */
+.hero-sm {
+  @apply flex h-[calc(100vh-64px)] flex-col items-center justify-around;
+}
+
+.hero {
+  @apply hero-sm;
+}

@@ -14,7 +14,7 @@ const MobileMenu = (props: Props) => {
   return (
     <motion.div
       key={Math.random().toString()}
-      className="absolute top-0 bottom-0 z-50 h-full w-full overflow-hidden bg-white dark:bg-[#222]"
+      className="mobileMenu"
       initial={{ x: "-100%" }}
       animate={{ x: 0 }}
       transition={{ duration: 0.3 }}

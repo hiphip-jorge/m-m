@@ -3,6 +3,18 @@ module.exports = {
   content: ["./app/**/*.{ts,tsx,jsx,js}"],
   darkMode: "class",
   theme: {
+    screens: {
+      'sm': '400px',
+      // => @media (min-width: 400px) { ... }
+      'md': '640px',
+      // => @media (min-width: 640px) { ... }
+      'lg': '812px',
+      // => @media (min-width: 812px) { ... } 
+      'xl': '1024px',
+      // => @media (min-width: 1024px) { ... }
+      '2xl': '1280px',
+      // => @media (min-width: 1280px) { ... }
+    },
     extend: {
       fontFamily: {
         lexend: ["Lexend", "sans-serif"],

@@ -31,7 +31,7 @@ const Card = ({ className, backgroundImage, animation, label }: Props) => {
       {/* add span to bottom right of container using tailwind */}
       {label && (
         <motion.span
-          className="absolute bottom-4 right-4 rounded-sm bg-[#222] p-1 text-2xl font-bold text-[#eee]"
+          className="card-label"
           initial={{ x: -100 }}
           animate={{ x: 0 }}
           transition={{ delay: 0.3 }}

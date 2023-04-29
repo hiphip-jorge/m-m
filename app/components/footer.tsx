@@ -7,7 +7,7 @@ type Props = {
 
 const Footer = (props: Props) => {
   return (
-    <footer className="section-container flex flex-col items-center gap-4 bg-[#222] text-center text-[#eee] dark:bg-[#eee] dark:text-[#222]">
+    <footer className="footer-sm">
       <Logo />
       <Socials isDark={props.isDark} solid />
       <a href="mailto:someone@example.com" className="mt-6 text-lg underline">
