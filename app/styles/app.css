@@ -39,7 +39,37 @@ p {
   @apply dark:from-[#222] dark:to-[#111]
  }
 
-/* NAV */
+/* future animation use  */
+/* .cancel > .menu-bars {
+    @apply opacity-0 w-0
+}
+
+.cancel > .menu-bars::before {
+    rotate: 45deg;
+} */
+
+/* ANIMATIONS  */
+.bounce {
+  animation: bounce-right 1.25s linear infinite;
+}
+
+@keyframes bounce-right {
+  0% {
+    transform: translateX(0);
+  }
+  50% {
+    transform: translateX(0.125rem);
+  }
+  100% {
+    transform: translateX(0);
+  }
+}
+
+/* COMPONENTS */
+.navbar {
+  @apply flex h-16 items-center justify-between p-3 font-lexend text-[2rem] font-bold text-[#000] dark:text-[#eee];
+}
+
 .nav-bar_line {
   @apply after:absolute after:left-0 after:right-0 after:top-16 after:mx-auto after:h-[.1rem] after:w-[340px] after:bg-[#eee] dark:after:bg-[#333];
 }
@@ -56,17 +86,51 @@ p {
   @apply after:h-[3.5px] after:w-8 after:bg-black dark:after:bg-white;
 }
 
-/* future animation use  */
-/* .cancel > .menu-bars {
-    @apply opacity-0 w-0
+.card-label {
+  @apply absolute bottom-4 right-4 rounded-sm bg-[#222] p-1 text-2xl font-bold text-[#eee];
 }
 
-.cancel > .menu-bars::before {
-    rotate: 45deg;
-} */
-/*                      */
+.footer-sm {
+  @apply section-container flex flex-col items-center gap-4 bg-[#222] text-center text-[#eee] dark:bg-[#eee] dark:text-[#222];
+}
+
+.mobileMenu {
+  @apply absolute top-0 bottom-0 z-50 h-full w-full overflow-hidden bg-white dark:bg-[#222] sm:hidden;
+}
+
+.mobileMenuButton {
+  @apply sticky top-12 left-4 z-50 h-16 w-16 rounded-sm bg-white p-4 shadow-2xl shadow-black dark:bg-[#222] md:hidden;
+}
+
+.shadow-photoStack--dark {
+  box-shadow: 25px 25px 12px rgb(0 0 0 / 0.75);
+}
 
 /* BUTTONS */
+.button-fill--light {
+  background-image: linear-gradient(#000, #000);
+  background-position: 0% 0%;
+  background-repeat: no-repeat;
+  background-size: 0% 100%;
+  transition: background-size ease-in-out 0.5s, color ease-in-out 0.5s;
+}
+
+a:hover .button-fill--light {
+  background-size: 100% 100%;
+}
+
+.button-fill--dark {
+  background-image: linear-gradient(#eee, #eee);
+  background-position: 0% 0%;
+  background-repeat: no-repeat;
+  background-size: 0% 100%;
+  transition: background-size ease-in-out 0.5s, color ease-in-out 0.5s;
+}
+
+button:hover .button-fill--dark {
+  background-size: 100% 100%;
+}
+
 .text-button {
   @apply text-[32px] leading-[40px];
 }
@@ -96,73 +160,6 @@ a:hover > div > #portfolio--light {
 
 a:hover > div > #portfolio--dark {
   color: #000;
-}
-
-/* COMPONENTS */
-.shadow-photoStack--dark {
-  box-shadow: 25px 25px 12px rgb(0 0 0 / 0.75);
-}
-
-.button-fill--light {
-  background-image: linear-gradient(#000, #000);
-  background-position: 0% 0%;
-  background-repeat: no-repeat;
-  background-size: 0% 100%;
-  transition: background-size ease-in-out 0.5s, color ease-in-out 0.5s;
-}
-
-button:hover .button-fill--light {
-  background-size: 100% 100%;
-}
-
-.button-fill--dark {
-  background-image: linear-gradient(#eee, #eee);
-  background-position: 0% 0%;
-  background-repeat: no-repeat;
-  background-size: 0% 100%;
-  transition: background-size ease-in-out 0.5s, color ease-in-out 0.5s;
-}
-
-button:hover .button-fill--dark {
-  background-size: 100% 100%;
-}
-
-/* ANIMATIONS  */
-.bounce {
-  animation: bounce-right 1.25s linear infinite;
-}
-
-@keyframes bounce-right {
-  0% {
-    transform: translateX(0);
-  }
-  50% {
-    transform: translateX(0.125rem);
-  }
-  100% {
-    transform: translateX(0);
-  }
-}
-
-/* COMPONENTS */
-.navbar {
-  @apply flex h-16 items-center justify-between p-3 font-lexend text-[2rem] font-bold text-[#000] dark:text-[#eee];
-}
-
-.card-label {
-  @apply absolute bottom-4 right-4 rounded-sm bg-[#222] p-1 text-2xl font-bold text-[#eee];
-}
-
-.footer-sm {
-  @apply section-container flex flex-col items-center gap-4 bg-[#222] text-center text-[#eee] dark:bg-[#eee] dark:text-[#222];
-}
-
-.mobileMenu {
-  @apply absolute top-0 bottom-0 z-50 h-full w-full overflow-hidden bg-white dark:bg-[#222] sm:hidden;
-}
-
-.mobileMenuButton {
-  @apply sticky top-12 left-4 z-50 h-16 w-16 rounded-sm bg-white p-4 shadow-2xl shadow-black dark:bg-[#222] md:hidden;
 }
 
 /* SECTIONS */

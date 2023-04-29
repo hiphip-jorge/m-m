@@ -121,13 +121,15 @@ export const sun_icon = (color = "#000") => (
 
 export const moon_icon = (color = "#000") => (
   <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512">
-    {/* <!--! Font Awesome Pro 6.3.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license (Commercial License) Copyright 2023 Fonticons, Inc.--> */}
-    <path
-      fill={color}
-      d="M144.7 98.7a224 224 0 0 0 117.3 329A175.7 175.7 0 0 1 48 256c0-68.9 39.4-128.4 96.8-157.3zm62.1-66A223.6 223.6 0 0 0 0 256a223.7 223.7 0 0 0 351.9 183.4l5.5-4a215.7 215.7 0 0 0 21.8-18.7 16 16 0 0 0-13.9-27.2c-3.7.6-7.4 1.2-11.1 1.6-5 .5-10.1.9-15.3 1h-4a175.8 175.8 0 0 1-175.2-176c0-54.8 24.9-103.7 64.1-136l3.2-2.6a158.3 158.3 0 0 1 22.1-14.8 16 16 0 0 0-6.6-29.8c-3.6-.3-7.1-.5-10.7-.6l-8.2-.1-9.8.2-6.9.4z"
-    />
-  </svg>
+  {/* <!--! Font Awesome Pro 6.4.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license (Commercial License) Copyright 2023 Fonticons, Inc. --> */}
+  <path 
+    fill={color}
+    d="M223.5 32C100 32 0 132.3 0 256S100 480 223.5 480c60.6 0 115.5-24.2 155.8-63.4c5-4.9 6.3-12.5 3.1-18.7s-10.1-9.7-17-8.5c-9.8 1.7-19.8 2.6-30.1 2.6c-96.9 0-175.5-78.8-175.5-176c0-65.8 36-123.1 89.3-153.3c6.1-3.5 9.2-10.5 7.7-17.3s-7.3-11.9-14.3-12.5c-6.3-.5-12.6-.8-19-.8z"/>
+</svg>
 );
+
+
+
 
 export const arrow_icon = (color = "#000", animate = false) => (
   <svg

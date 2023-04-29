@@ -1,5 +1,6 @@
 import { gallery_icon } from "~/utils.svg";
 import photo3 from "~/photos/03.jpg";
+import { Link } from "@remix-run/react";
 
 type Props = {
   isDarkMode: boolean;
@@ -17,7 +18,10 @@ const PortfolioSection = ({ isDarkMode, theme }: Props) => {
             while you look through my photos and spot the extra care I give each
             one.
           </p>
-          <button className="self-end border-[3.5px] border-black dark:border-[#eee]">
+          <Link
+            to="./portfolio"
+            className="self-end border-[3.5px] border-black dark:border-[#eee]"
+          >
             <div
               className={`flex h-full w-full gap-2 p-3 button-fill--${
                 isDarkMode ? "dark" : "light"
@@ -31,7 +35,7 @@ const PortfolioSection = ({ isDarkMode, theme }: Props) => {
               </span>
               {gallery_icon(theme.iconColor)}
             </div>
-          </button>
+          </Link>
         </article>
       </div>
       <img className="w-full bg-black" src={photo3} alt="" />
