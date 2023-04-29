@@ -1,7 +1,6 @@
 import { useState } from "react";
 import CircleArrowBtn from "~/components/circleArrowBtn";
 import Testimonial from "~/components/testimonial";
-import TransitionAnimation from "../transitionAnimation";
 
 type Props = {
   isDarkMode?: boolean;

@@ -1,20 +1,13 @@
-import { Link } from "@remix-run/react";
+import { useParams } from "@remix-run/react";
 import Card from "~/components/card";
 import Photo1 from "~/photos/02.jpg";
 
 type Props = {};
 
-let categoryLabels = [
-  "In Action",
-  "Portraits",
-  "Weddings",
-  "Nature",
-  "Culture",
-  "Kids",
-  "Sports",
-];
+let photos = ["photo1", "photo2", "photo3", "photo4", "photo5"];
 
 const Index = (props: Props) => {
+  let { folioCategory } = useParams();
   let categoryCardsClass =
     "h-80 w-64 rounded-md bg-[#eee] text-black shadow-2xl dark:bg-[#222] dark:text-white";
   let animation = {
@@ -28,18 +21,15 @@ const Index = (props: Props) => {
   return (
     <main>
       <section className="flex flex-col gap-8 py-12 px-10">
-        <h1 className="section-header">My Work</h1>
+        <h1 className="section-header capitalize">{folioCategory?.replace("-", " ")}</h1>
         <ul className="flex flex-wrap items-center justify-center gap-16 text-[#eee]">
-          {categoryLabels.map((label, idx) => (
-            <li key={idx}>
-              <Link to={"./" + label.toLowerCase().replace(" ", "-")}>
-                <Card
-                  className={categoryCardsClass}
-                  label={label}
-                  animation={animation}
-                  backgroundImage={`url(${Photo1})`}
-                />
-              </Link>
+          {photos.map((photoName) => (
+            <li key={photoName}>
+              <Card
+                className={categoryCardsClass}
+                animation={animation}
+                backgroundImage={`url(${Photo1})`}
+              />
             </li>
           ))}
         </ul>

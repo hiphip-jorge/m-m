@@ -3,7 +3,7 @@ import { motion } from "framer-motion";
 type Props = {
   backgroundImage?: string;
   className: string;
-  label: string;
+  label?: string;
   animation?: {
     initial: any;
     whileInView: any;
@@ -29,14 +29,16 @@ const Card = ({ className, backgroundImage, animation, label }: Props) => {
       transition={animation?.transition}
     >
       {/* add span to bottom right of container using tailwind */}
-      <motion.span
-        className="absolute bottom-4 right-4 rounded-sm bg-[#222] p-1 text-2xl font-bold text-[#eee]"
-        initial={{ x: -100 }}
-        animate={{ x: 0 }}
-        transition={{ delay: 0.3 }}
-      >
-        {label}
-      </motion.span>
+      {label && (
+        <motion.span
+          className="absolute bottom-4 right-4 rounded-sm bg-[#222] p-1 text-2xl font-bold text-[#eee]"
+          initial={{ x: -100 }}
+          animate={{ x: 0 }}
+          transition={{ delay: 0.3 }}
+        >
+          {label}
+        </motion.span>
+      )}
     </motion.div>
   );
 };
