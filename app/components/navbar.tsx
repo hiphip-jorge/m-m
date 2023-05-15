@@ -1,5 +1,6 @@
 import { close_icon, moon_icon, sun_icon } from "~/utils.svg";
 import Logo from "./logo";
+import { motion } from "framer-motion";
 
 type Props = {
   darkMode?: boolean;
@@ -14,15 +15,23 @@ const Navbar = (props: Props) => {
   let className = "navbar";
 
   let openMenuButton = (
-    <button className="h-8 w-8 md:hidden" onClick={props.handleMenuToggle}>
+    <motion.button
+      className="h-8 w-8 md:hidden"
+      onClick={props.handleMenuToggle}
+      whileTap={{ scale: 0.9 }}
+    >
       <span className="menu-bars w-full text-2xl leading-6">&</span>
-    </button>
+    </motion.button>
   );
 
   let closedMenuButton = (
-    <button className="h-8 w-8" onClick={props.handleMenuToggle}>
+    <motion.button
+      className="h-8 w-8"
+      onClick={props.handleMenuToggle}
+      whileTap={{ scale: 0.9 }}
+    >
       {close_icon(props.iconColor)}
-    </button>
+    </motion.button>
   );
 
   return (

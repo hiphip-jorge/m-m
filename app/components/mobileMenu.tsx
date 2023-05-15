@@ -15,7 +15,7 @@ const MobileMenu = (props: Props) => {
     <motion.div
       key={Math.random().toString()}
       className="mobileMenu"
-      initial={{ x: "-100%" }}
+      initial={{ x: -100 }}
       animate={{ x: 0 }}
       transition={{ duration: 0.3 }}
     >
@@ -31,12 +31,12 @@ const MobileMenu = (props: Props) => {
           <ul className="flex flex-col gap-6">
             <li>
               <button onClick={props.handleMenuToggle}>
-                <NavLink to="/about">About Me</NavLink>
+                <NavLink to="/portfolio">Portfolio</NavLink>
               </button>
             </li>
             <li>
               <button onClick={props.handleMenuToggle}>
-                <NavLink to="/portfolio">Portfolio</NavLink>
+                <NavLink to="/about">About Me</NavLink>
               </button>
             </li>
             <li>
