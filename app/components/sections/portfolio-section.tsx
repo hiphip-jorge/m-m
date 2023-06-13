@@ -38,7 +38,7 @@ const PortfolioSection = ({ isDarkMode, theme }: Props) => {
           </Link>
         </article>
       </div>
-      <img className="w-full bg-black" src={photo3} alt="" />
+      <img className="w-full bg-black" loading="lazy" src={photo3} alt="" />
     </section>
   );
 };

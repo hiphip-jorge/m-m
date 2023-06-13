@@ -14,7 +14,12 @@ const AboutSection = () => {
         </div>
 
         <div className="">
-          <img className="absolute right-0 w-[260px] " src={photo2} alt="" />
+          <img
+            className="absolute right-0 w-[260px]"
+            loading="lazy"
+            src={photo2}
+            alt=""
+          />
         </div>
       </div>
       <article>
