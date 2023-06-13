@@ -5,7 +5,7 @@ import * as React from "react";
 
 import { getUserId, createUserSession } from "~/session.server";
 
-import { createUser, getUserByEmail } from "~/models/user.server";
+import { createUser, getUserByUsername } from "~/models/user.server";
 import { safeRedirect, validateEmail } from "~/utils";
 
 export async function loader({ request }: LoaderArgs) {
@@ -41,7 +41,7 @@ export async function action({ request }: ActionArgs) {
     );
   }
 
-  const existingUser = await getUserByEmail(email);
+  const existingUser = await getUserByUsername(email);
   if (existingUser) {
     return json(
       {
