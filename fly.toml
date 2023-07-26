@@ -13,10 +13,6 @@ kill_timeout = "5s"
   entrypoint = ["sh"]
   auto_rollback = true
 
-[[mounts]]
-  source = "data"
-  destination = "/data"
-
 [[services]]
   protocol = "tcp"
   internal_port = 8080
