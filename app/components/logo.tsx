@@ -9,7 +9,7 @@ const Logo = (props: Props) => {
   return (
     <button onClick={props.onClick}>
       <NavLink to="./">
-        <span className="text-[2rem] font-bold">M&M</span>
+        <p className="text-[2rem] font-bold">MM</p>
       </NavLink>
     </button>
   );

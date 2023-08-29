@@ -18,6 +18,7 @@ module.exports = {
     extend: {
       fontFamily: {
         lexend: ["Lexend", "sans-serif"],
+        playfair: ["Playfair Display SC", "serif"]
       },
       rotate: {
         4: "4deg",

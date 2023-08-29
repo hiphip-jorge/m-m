@@ -31,11 +31,14 @@ export type ContextType = {
 
 const lexendFontURL =
   "https://fonts.googleapis.com/css2?family=Lexend:wght@400;700&display=swap";
+const playfairUrl =
+  "https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&display=swap";
 
 export const links: LinksFunction = () => {
   return [
     { rel: "icon", href: favicon },
     { rel: "stylesheet", href: lexendFontURL },
+    { rel: "stylesheet", href: playfairUrl },
     { rel: "stylesheet", href: tailwindStylesheetUrl },
   ];
 };

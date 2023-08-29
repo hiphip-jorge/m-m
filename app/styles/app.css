@@ -65,9 +65,18 @@ p {
   }
 }
 
+.active {
+  @apply bg-[#222] text-[#eee]
+}
+
+.active li,
+.active svg {
+  @apply bg-[#eee] fill-[#eee]
+}
+
 /* COMPONENTS */
 .navbar {
-  @apply flex h-16 items-center justify-between p-3 font-lexend text-[2rem] font-bold text-[#000] dark:text-[#eee];
+  @apply flex h-16 items-center justify-between p-4 font-playfair text-[2rem] font-bold text-[#000] dark:text-[#eee];
 }
 
 .nav-bar_line {
@@ -75,15 +84,15 @@ p {
 }
 
 .menu-bars {
-  @apply menu-topBar menu-bottomBar flex h-full w-full flex-col opacity-100;
+  @apply menu-topBar menu-bottomBar flex w-full flex-col opacity-100;
 }
 
 .menu-topBar {
-  @apply before:h-[3.5px] before:w-8 before:bg-black dark:before:bg-white;
+  @apply before:h-[2px] before:w-8 before:bg-black dark:before:bg-white;
 }
 
 .menu-bottomBar {
-  @apply after:h-[3.5px] after:w-8 after:bg-black dark:after:bg-white;
+  @apply after:h-[2px] after:w-8 after:bg-black dark:after:bg-white;
 }
 
 .card-label {
