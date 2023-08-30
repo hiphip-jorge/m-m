@@ -71,35 +71,21 @@ export default function App() {
         <Links />
       </head>
       <body className="bg-gradient-light bg-gradient-dark bg-gradient-to-br bg-no-repeat dark:text-[#eee]">
-        {isMenuOpen ? (
-          <AnimatePresence
-            mode="wait"
-            onExitComplete={() => console.log("exit complete")}
-          >
-            <MobileMenu
-              isDarkMode={isDarkMode}
-              handleMenuToggle={toggleMobileMenu}
-              handleThemeToggle={toggleTheme}
-              iconColor={theme.iconColor}
-            />
-          </AnimatePresence>
-        ) : (
-          <TransitionAnimation>
-            <ProgressBar />
-            <Navbar
-              isOpen={isMenuOpen}
-              divider
-              darkMode={isDarkMode}
-              iconColor={theme.iconColor}
-              handleThemeToggle={toggleTheme}
-              handleMenuToggle={toggleMobileMenu}
-            />
-            <Outlet
-              context={{ isDarkMode, theme, isMenuOpen, toggleMobileMenu }}
-            />
-            <Footer isDark={isDarkMode} />
-          </TransitionAnimation>
-        )}
+        <TransitionAnimation>
+          {/* <ProgressBar /> */}
+          <Navbar
+            isOpen={isMenuOpen}
+            divider
+            darkMode={isDarkMode}
+            iconColor={theme.iconColor}
+            handleThemeToggle={toggleTheme}
+            handleMenuToggle={toggleMobileMenu}
+          />
+          <Outlet
+            context={{ isDarkMode, theme, isMenuOpen, toggleMobileMenu }}
+          />
+          <Footer isDark={isDarkMode} />
+        </TransitionAnimation>
         <ScrollRestoration />
         <Scripts />
         <LiveReload />

@@ -6,6 +6,7 @@ import AboutSection from "~/components/sections/about-section";
 import TestimonialsSection from "~/components/sections/testimonials-section";
 import Portfoliosection from "~/components/sections/portfolio-section";
 import MobileMenuButton from "~/components/mobileMenuButton";
+import SortBy from "~/components/sortBy";
 
 export default function Index() {
   let { isDarkMode, theme, isMenuOpen, toggleMobileMenu } =
@@ -13,7 +14,8 @@ export default function Index() {
 
   return (
     <main>
-      <HeroSection isDarkMode={isDarkMode} isMenuOpen={isMenuOpen} />
+      <SortBy />
+      {/* <HeroSection isDarkMode={isDarkMode} isMenuOpen={isMenuOpen} />
       <MobileMenuButton
         handleMenuToggle={toggleMobileMenu}
         isMenuOpen={isMenuOpen}
@@ -21,7 +23,7 @@ export default function Index() {
         <AboutSection />
         <TestimonialsSection isDarkMode={isDarkMode} />
         <Portfoliosection isDarkMode={isDarkMode} theme={theme} />
-      </MobileMenuButton>
+      </MobileMenuButton> */}
     </main>
   );
 }
