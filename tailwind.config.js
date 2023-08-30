@@ -16,6 +16,9 @@ module.exports = {
       // => @media (min-width: 1280px) { ... }
     },
     extend: {
+      gridTemplateRows: {
+        'masonry': 'masonry',
+      },
       fontFamily: {
         lexend: ["Lexend", "sans-serif"],
         playfair: ["Playfair Display SC", "serif"]
