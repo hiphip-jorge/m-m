@@ -9,7 +9,7 @@ import {
   ScrollRestoration,
 } from "@remix-run/react";
 import { useState } from "react";
-import { getUser } from "./session.server";
+// import { getUser } from "./session.server";
 
 import { useThemes } from "./components/hooks/use-themes";
 import Navbar from "./components/navbar";
@@ -53,11 +53,11 @@ export const meta: V2_MetaFunction = () => {
   ];
 };
 
-export async function loader({ request }: LoaderArgs) {
-  return json({
-    user: await getUser(request),
-  });
-}
+// export async function loader({ request }: LoaderArgs) {
+//   return json({
+//     user: await getUser(request),
+//   });
+// }
 
 export default function App() {
   let [isMenuOpen, setIsMenuOpen] = useState(false);
