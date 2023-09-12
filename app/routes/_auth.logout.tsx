@@ -1,5 +1,5 @@
 // import type { ActionArgs } from "@remix-run/node";
-// import { redirect } from "@remix-run/node";
+import { redirect } from "@remix-run/node";
 
 // import { logout } from "~/session.server";
 
@@ -7,6 +7,6 @@
 //   return logout(request);
 // }
 
-// export async function loader() {
-//   return redirect("/");
-// }
+export async function loader() {
+  return redirect("/");
+}
