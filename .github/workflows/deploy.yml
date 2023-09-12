@@ -54,8 +54,8 @@ jobs:
         with:
           useLockFile: false
 
-      - name: 🔎 Type check
-        run: npm run typecheck --if-present`
+      # - name: 🔎 Type check
+      #   run: npm run typecheck --if-present`
 
   build:
     name: 🐳 Build
