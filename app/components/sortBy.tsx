@@ -5,7 +5,7 @@ export default function SortBy() {
   const sortByList = ["All", "Categories", "Recent"];
 
   return (
-    <aside className="mt-4 p-4">
+    <aside className="p-4">
       <ul className="flex gap-3 font-playfair font-bold">
         {sortByList.map((sortBy, idx) => {
           return (

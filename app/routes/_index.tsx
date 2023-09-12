@@ -31,7 +31,7 @@ export default function Index() {
   return (
     <div>
       <SortBy />
-      <main className="mx-auto mb-8 w-fit">
+      <main className="mx-auto mb-8 mt-2 w-fit">
         <ul className="grid grid-cols-2 grid-rows-masonry gap-3">
           {imgs.map((img, idx) => {
             return (
