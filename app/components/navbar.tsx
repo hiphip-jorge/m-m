@@ -1,6 +1,6 @@
-import { close_icon, moon_icon, quote_icon, sun_icon } from "~/utils.svg";
-import Logo from "./logo";
-import { motion } from "framer-motion";
+// import { close_icon } from "~/utils.svg";
+// import Logo from "./logo";
+// import { motion } from "framer-motion";
 import { NavLink } from "@remix-run/react";
 
 type Props = {
@@ -13,25 +13,25 @@ type Props = {
 };
 
 const Navbar = (props: Props) => {
-  let openMenuButton = (
-    <motion.button
-      className="h-8 w-8 md:hidden"
-      onClick={props.handleMenuToggle}
-      whileTap={{ scale: 0.9 }}
-    >
-      <span className="menu-bars w-full text-2xl leading-6">M</span>
-    </motion.button>
-  );
+  // let openMenuButton = (
+  //   <motion.button
+  //     className="h-8 w-8 md:hidden"
+  //     onClick={props.handleMenuToggle}
+  //     whileTap={{ scale: 0.9 }}
+  //   >
+  //     <span className="menu-bars w-full text-2xl leading-6">M</span>
+  //   </motion.button>
+  // );
 
-  let closedMenuButton = (
-    <motion.button
-      className="h-8 w-8"
-      onClick={props.handleMenuToggle}
-      whileTap={{ scale: 0.9 }}
-    >
-      {close_icon(props.iconColor)}
-    </motion.button>
-  );
+  // let closedMenuButton = (
+  //   <motion.button
+  //     className="h-8 w-8"
+  //     onClick={props.handleMenuToggle}
+  //     whileTap={{ scale: 0.9 }}
+  //   >
+  //     {close_icon(props.iconColor)}
+  //   </motion.button>
+  // );
 
   return (
     <nav className="navbar">

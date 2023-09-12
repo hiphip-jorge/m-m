@@ -17,9 +17,9 @@ import Footer from "./components/footer";
 
 import favicon from "./assets/favicon.svg";
 import tailwindStylesheetUrl from "./styles/tailwind.css";
-import ProgressBar from "./components/progressBar";
-import MobileMenu from "./components/mobileMenu";
-import { AnimatePresence } from "framer-motion";
+// import ProgressBar from "./components/progressBar";
+// import MobileMenu from "./components/mobileMenu";
+// import { AnimatePresence } from "framer-motion";
 import TransitionAnimation from "./components/transitionAnimation";
 
 export type ContextType = {

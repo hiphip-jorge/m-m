@@ -1,4 +1,4 @@
-import { LoaderArgs } from "@remix-run/server-runtime";
+import { type LoaderArgs } from "@remix-run/server-runtime";
 import { json, redirect } from "@remix-run/node";
 import { getUserId } from "~/session.server";
 

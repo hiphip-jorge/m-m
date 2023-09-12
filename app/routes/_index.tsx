@@ -1,5 +1,5 @@
-import { useOutletContext } from "@remix-run/react";
-import { type ContextType } from "~/root";
+// import { useOutletContext } from "@remix-run/react";
+// import { type ContextType } from "~/root";
 
 import SortBy from "~/components/sortBy";
 import photo1 from "../photos/01.jpg";
@@ -25,8 +25,8 @@ const imgs = [
 ];
 
 export default function Index() {
-  let { isDarkMode, theme, isMenuOpen, toggleMobileMenu } =
-    useOutletContext<ContextType>();
+  // let { isDarkMode, theme, isMenuOpen, toggleMobileMenu } =
+  //   useOutletContext<ContextType>();
 
   return (
     <div>

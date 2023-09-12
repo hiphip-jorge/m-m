@@ -1,4 +1,4 @@
-import type { User, Photo, PhotoCategory } from "@prisma/client";
+import type { Photo, PhotoCategory } from "@prisma/client";
 
 import { prisma } from "~/db.server";
 
