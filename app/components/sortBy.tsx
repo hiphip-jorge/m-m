@@ -6,7 +6,7 @@ export default function SortBy() {
 
   return (
     <aside className="p-4">
-      <ul className="flex gap-3 font-playfair font-bold">
+      <ul className="flex gap-3 font-lexend font-bold">
         {sortByList.map((sortBy, idx) => {
           return (
             <button

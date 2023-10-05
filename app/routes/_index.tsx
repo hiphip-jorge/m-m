@@ -1,57 +1,42 @@
-// import { useOutletContext } from "@remix-run/react";
-// import { type ContextType } from "~/root";
+import { useLoaderData } from "@remix-run/react";
+import { LoaderArgs } from "@remix-run/node";
+import { createServerClient } from "@supabase/auth-helpers-remix";
 
 import SortBy from "~/components/sortBy";
-import photo1 from "../photos/01.jpg";
-import photo2 from "../photos/02.jpg";
-import photo3 from "../photos/03.jpg";
-import photo4 from "../photos/04.jpg";
-import photo5 from "../photos/05.jpg";
-import photo6 from "../photos/06.jpg";
-import photo7 from "../photos/07.jpg";
-import photo8 from "../photos/08.jpg";
-import photo9 from "../photos/09.jpg";
 
-const imgs = [
-  photo1,
-  photo2,
-  photo3,
-  photo4,
-  photo5,
-  photo6,
-  photo7,
-  photo8,
-  photo9,
-];
+// https://ptqtaxtrjxniohmxxmfb.supabase.co/storage/v1/object/sign/test_photos/01.jpg?token=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1cmwiOiJ0ZXN0X3Bob3Rvcy8wMS5qcGciLCJpYXQiOjE2OTY1MjY2NTAsImV4cCI6MTY5NzEzMTQ1MH0.04pb4Y23eQK2ZjT-Gcmuthc2RUnSUqA4HPCGRiwlZuU&t=2023-10-05T17%3A24%3A10.603Z
+
+export const loader = async ({ request }: LoaderArgs) => {
+  const response = new Response();
+  const supabase = createServerClient(
+    process.env.SUPABASE_URL!,
+    process.env.SUPABASE_ANON_KEY!,
+    { request, response }
+  );
+
+  const { data } = await supabase.storage.from("test_photos").list("", {
+    limit: 20,
+    offset: 0,
+    sortBy: { column: "name", order: "asc" },
+  });
+
+  return { data, headers: response.headers };
+};
 
 export default function Index() {
-  // let { isDarkMode, theme, isMenuOpen, toggleMobileMenu } =
-  //   useOutletContext<ContextType>();
+  const { data } = useLoaderData();
+  console.log("data: ", data);
 
   return (
     <div>
       <SortBy />
       <main className="mx-auto mb-8 mt-2 w-fit">
         <ul className="grid grid-cols-2 grid-rows-masonry gap-3">
-          {imgs.map((img, idx) => {
-            return (
-              <li key={idx} className="max-w-[150px]">
-                <img src={img} alt="" className="rounded-md shadow-lg" />
-              </li>
-            );
-          })}
+          {data.map((photo: any, idx: number) => (
+            <li key={idx}>{idx}</li>
+          ))}
         </ul>
       </main>
-
-      {/* <HeroSection isDarkMode={isDarkMode} isMenuOpen={isMenuOpen} />
-      <MobileMenuButton
-        handleMenuToggle={toggleMobileMenu}
-        isMenuOpen={isMenuOpen}
-      >
-        <AboutSection />
-        <TestimonialsSection isDarkMode={isDarkMode} />
-        <Portfoliosection isDarkMode={isDarkMode} theme={theme} />
-      </MobileMenuButton> */}
     </div>
   );
 }

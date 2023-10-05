@@ -1,5 +1,5 @@
+import { useEffect, useState } from "react";
 import type { LinksFunction, LoaderArgs } from "@remix-run/node";
-import { json } from "@remix-run/node";
 import {
   Links,
   LiveReload,
@@ -7,19 +7,19 @@ import {
   Outlet,
   Scripts,
   ScrollRestoration,
+  useLoaderData,
+  useRevalidator,
 } from "@remix-run/react";
-import { useState } from "react";
-// import { getUser } from "./session.server";
+import {
+  createBrowserClient,
+  createServerClient,
+} from "@supabase/auth-helpers-remix";
 
-import { useThemes } from "./components/hooks/use-themes";
 import Navbar from "./components/navbar";
 import Footer from "./components/footer";
 
 import favicon from "./assets/favicon.svg";
 import tailwindStylesheetUrl from "./styles/tailwind.css";
-// import ProgressBar from "./components/progressBar";
-// import MobileMenu from "./components/mobileMenu";
-// import { AnimatePresence } from "framer-motion";
 import TransitionAnimation from "./components/transitionAnimation";
 
 export type ContextType = {
@@ -43,30 +43,57 @@ export const links: LinksFunction = () => {
   ];
 };
 
-export const meta: V2_MetaFunction = () => {
-  return [
-    {
-      charset: "utf-8",
-      title: "M&M | Photography",
-      viewport: "width=device-width,initial-scale=1",
-    },
-  ];
-};
+export async function loader({ request }: LoaderArgs) {
+  const env = {
+    SUPABASE_URL: process.env.SUPABASE_URL!,
+    SUPABASE_ANON_KEY: process.env.SUPABASE_ANON_KEY!,
+  };
 
-// export async function loader({ request }: LoaderArgs) {
-//   return json({
-//     user: await getUser(request),
-//   });
-// }
+  const response = new Response();
+
+  const supabase = createServerClient(
+    process.env.SUPABASE_URL!,
+    process.env.SUPABASE_ANON_KEY!,
+    {
+      request,
+      response,
+    }
+  );
+
+  const {
+    data: { session },
+  } = await supabase.auth.getSession();
+
+  return { env, session, headers: response.headers };
+}
 
 export default function App() {
-  let [isMenuOpen, setIsMenuOpen] = useState(false);
-  let { isDarkMode, toggleTheme } = useThemes();
-  let theme = { iconColor: isDarkMode ? "#eee" : "#000" };
+  const { env, session } = useLoaderData();
+  const { revalidate } = useRevalidator();
 
-  let toggleMobileMenu = () => {
-    isMenuOpen ? setIsMenuOpen(false) : setIsMenuOpen(true);
-  };
+  const [supabase] = useState(() =>
+    createBrowserClient(env.SUPABASE_URL!, env.SUPABASE_ANON_KEY!)
+  );
+
+  const serverAccessToken = session?.access_token;
+
+  useEffect(() => {
+    const {
+      data: { subscription },
+    } = supabase.auth.onAuthStateChange((event, session) => {
+      if (
+        event !== "INITIAL_SESSION" &&
+        session?.access_token !== serverAccessToken
+      ) {
+        // server and client are out of sync.
+        revalidate();
+      }
+    });
+
+    return () => {
+      subscription.unsubscribe();
+    };
+  }, [serverAccessToken, supabase, revalidate]);
 
   return (
     <html lang="en">
@@ -79,18 +106,9 @@ export default function App() {
       <body className="bg-gradient-light bg-gradient-dark bg-gradient-to-br bg-no-repeat dark:text-[#eee]">
         <TransitionAnimation>
           {/* <ProgressBar /> */}
-          <Navbar
-            isOpen={isMenuOpen}
-            divider
-            darkMode={isDarkMode}
-            iconColor={theme.iconColor}
-            handleThemeToggle={toggleTheme}
-            handleMenuToggle={toggleMobileMenu}
-          />
-          <Outlet
-            context={{ isDarkMode, theme, isMenuOpen, toggleMobileMenu }}
-          />
-          <Footer isDark={isDarkMode} />
+          <Navbar supabaseClient={supabase} />
+          <Outlet context={supabase} />
+          <Footer />
         </TransitionAnimation>
         <ScrollRestoration />
         <Scripts />

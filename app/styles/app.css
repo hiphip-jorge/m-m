@@ -76,7 +76,7 @@ p {
 
 /* COMPONENTS */
 .navbar {
-  @apply flex h-24 items-center justify-between p-4 font-playfair text-[2rem] font-bold text-[#000] dark:text-[#eee];
+  @apply flex h-20 items-center justify-between p-4 font-playfair text-[2rem] font-bold text-[#000] dark:text-[#eee];
 }
 
 .nav-bar_line {
