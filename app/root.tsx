@@ -51,49 +51,53 @@ export async function loader({ request }: LoaderArgs) {
 
   const response = new Response();
 
-  const supabase = createServerClient(
-    process.env.SUPABASE_URL!,
-    process.env.SUPABASE_ANON_KEY!,
-    {
-      request,
-      response,
-    }
-  );
+  try {
+    const supabase = createServerClient(
+      process.env.SUPABASE_URL!,
+      process.env.SUPABASE_ANON_KEY!,
+      {
+        request,
+        response,
+      }
+    );
 
-  const {
-    data: { session },
-  } = await supabase.auth.getSession();
+    const {
+      data: { session },
+    } = await supabase.auth.getSession();
 
-  return { env, session, headers: response.headers };
+    return { env, session, headers: response.headers };
+  } catch (e) {
+    console.log("No client.")
+  }
 }
 
 export default function App() {
-  const { env, session } = useLoaderData();
-  const { revalidate } = useRevalidator();
+  // const { env, session } = useLoaderData();
+  // const { revalidate } = useRevalidator();
 
-  const [supabase] = useState(() =>
-    createBrowserClient(env.SUPABASE_URL!, env.SUPABASE_ANON_KEY!)
-  );
+  // const [supabase] = useState(() =>
+  //   createBrowserClient(env.SUPABASE_URL!, env.SUPABASE_ANON_KEY!)
+  // );
 
-  const serverAccessToken = session?.access_token;
+  // const serverAccessToken = session?.access_token;
 
-  useEffect(() => {
-    const {
-      data: { subscription },
-    } = supabase.auth.onAuthStateChange((event, session) => {
-      if (
-        event !== "INITIAL_SESSION" &&
-        session?.access_token !== serverAccessToken
-      ) {
-        // server and client are out of sync.
-        revalidate();
-      }
-    });
+  // useEffect(() => {
+  //   const {
+  //     data: { subscription },
+  //   } = supabase.auth.onAuthStateChange((event, session) => {
+  //     if (
+  //       event !== "INITIAL_SESSION" &&
+  //       session?.access_token !== serverAccessToken
+  //     ) {
+  //       // server and client are out of sync.
+  //       revalidate();
+  //     }
+  //   });
 
-    return () => {
-      subscription.unsubscribe();
-    };
-  }, [serverAccessToken, supabase, revalidate]);
+  //   return () => {
+  //     subscription.unsubscribe();
+  //   };
+  // }, [serverAccessToken, supabase, revalidate]);
 
   return (
     <html lang="en">
@@ -106,8 +110,8 @@ export default function App() {
       <body className="bg-gradient-light bg-gradient-dark bg-gradient-to-br bg-no-repeat dark:text-[#eee]">
         <TransitionAnimation>
           {/* <ProgressBar /> */}
-          <Navbar supabaseClient={supabase} />
-          <Outlet context={supabase} />
+          <Navbar />
+          <Outlet />
           <Footer />
         </TransitionAnimation>
         <ScrollRestoration />

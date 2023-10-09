@@ -3,26 +3,26 @@ import { SupabaseClient } from "@supabase/supabase-js";
 import { useState } from "react";
 import { Database } from "~/database.types";
 
-type Props = {
-  supabaseClient: SupabaseClient<Database>;
-};
+// type Props = {
+//   supabaseClient: SupabaseClient<Database>;
+// };
 
-const Navbar = ({ supabaseClient }: Props) => {
-  const [isAuth, setAuth] = useState(false);
-  const supabase = supabaseClient;
+const Navbar = () => {
+  // const [isAuth, setAuth] = useState(false);
+  // const supabase = supabaseClient;
 
-  const handleSignIn = async () => {
-    await supabase.auth
-      .signInWithPassword({
-        email: "jorgeperez.inbox@gmail.com",
-        password: "password",
-      })
-      .then(() => setAuth(true));
-  };
+  // const handleSignIn = async () => {
+  //   await supabase.auth
+  //     .signInWithPassword({
+  //       email: "jorgeperez.inbox@gmail.com",
+  //       password: "password",
+  //     })
+  //     .then(() => setAuth(true));
+  // };
 
-  const handleLogout = async () => {
-    await supabase.auth.signOut().then(() => setAuth(false));
-  };
+  // const handleLogout = async () => {
+  //   await supabase.auth.signOut().then(() => setAuth(false));
+  // };
 
   return (
     <nav>
@@ -53,7 +53,7 @@ const Navbar = ({ supabaseClient }: Props) => {
           </NavLink>
         </ul>
       </div>
-      <div className="flex items-center justify-end px-4 text-xs">
+      {/* <div className="flex items-center justify-end px-4 text-xs">
         {isAuth ? (
           <button
             className="rounded-md  border-2 border-red-400 bg-red-300 p-2  font-lexend text-xs text-[#222]"
@@ -69,7 +69,7 @@ const Navbar = ({ supabaseClient }: Props) => {
             Sign in
           </button>
         )}
-      </div>
+      </div> */}
     </nav>
   );
 };

@@ -8,33 +8,37 @@ import SortBy from "~/components/sortBy";
 
 export const loader = async ({ request }: LoaderArgs) => {
   const response = new Response();
-  const supabase = createServerClient(
-    process.env.SUPABASE_URL!,
-    process.env.SUPABASE_ANON_KEY!,
-    { request, response }
-  );
+  try {
+    const supabase = createServerClient(
+      process.env.SUPABASE_URL!,
+      process.env.SUPABASE_ANON_KEY!,
+      { request, response }
+    );
 
-  const { data } = await supabase.storage.from("test_photos").list("", {
-    limit: 20,
-    offset: 0,
-    sortBy: { column: "name", order: "asc" },
-  });
+    const { data } = await supabase.storage.from("test_photos").list("", {
+      limit: 20,
+      offset: 0,
+      sortBy: { column: "name", order: "asc" },
+    });
 
-  return { data, headers: response.headers };
+    return { data, headers: response.headers };
+  } catch (e) {
+    console.log("process.env.SUPABASE_URL", process.env.SUPABASE_URL);
+    return { data: "" };
+  }
 };
 
 export default function Index() {
   const { data } = useLoaderData();
-  console.log("data: ", data);
 
   return (
     <div>
       <SortBy />
       <main className="mx-auto mb-8 mt-2 w-fit">
         <ul className="grid grid-cols-2 grid-rows-masonry gap-3">
-          {data.map((photo: any, idx: number) => (
+          {/* {data.map((photo: any, idx: number) => (
             <li key={idx}>{idx}</li>
-          ))}
+          ))} */}
         </ul>
       </main>
     </div>
